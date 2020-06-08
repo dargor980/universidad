@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    
+}
+ li a{
+     text-decoration: none;
+     color: white;
+ }
+
+li a:hover{
+    color: white;
+}
+
+
+#carouselExampleCaptions{
+    padding-bottom: 40px;
+}
+
+#principal{
+    background-color: gray;
+    padding: 30px 30px 30px 30px;
+}
