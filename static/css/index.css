@@ -1,4 +1,47 @@
 
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15{
+    position: relative;
+    min-height: 1px;
+}
+
+.col-xs-15{
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px)
+{
+    .col-sm-15
+    {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .col-md-15
+    {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px)
+{
+    .col-lg-15
+    {
+        width: 20%;
+        float: left;
+    }
+}
+
+.col-xs-12{
+    padding-bottom: 20px;
+}
 li {
     list-style: none;
     
@@ -33,11 +76,50 @@ main{
 p{
     color: white;
 }
+p.card-text{
+    color: black;
+}
 
 .news{
     color: white;
 }
 
 .activity{
+    color: white;
+}
+
+.investigacion{
+    padding-top: 20px;
+    background-color: gray;
+}
+
+.descubre-rexel{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.elements-investigacion{
+    padding-top: 20px;
+}
+
+.pad-inv{
+    padding-right: 20px;
+}
+
+.discover{
+    padding-bottom: 20px;
+}
+
+.card{
+    background-color: transparent;
+    border: none;
+}
+
+ a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
     color: white;
 }
