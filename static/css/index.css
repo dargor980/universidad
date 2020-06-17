@@ -46,6 +46,8 @@ li {
     list-style: none;
     
 }
+
+
  li a{
      text-decoration: none;
      color: white;
@@ -81,6 +83,13 @@ p.card-text{
 }
 
 .news{
+    color: white;
+}
+
+#news{
+    color: white;
+}
+#news p{
     color: white;
 }
 
@@ -123,3 +132,63 @@ p.card-text{
 a:hover{
     color: white;
 }
+
+.buscas{
+    padding-top: 20px;
+    background-color: #DADADA;
+}
+
+.icon-u{
+}
+
+.search{
+    background-color: white;
+    border-radius: 50%;
+    
+}
+
+.columna{
+    padding-top: 40px;
+    
+}
+
+.footer-info{
+    padding-top: 20px;
+}
+
+.lista-info-links:hover{
+    background-color: #cc0000;
+    text-decoration: none;
+}
+
+.lista-info-links a:hover{
+    text-decoration: none;
+}
+
+.social-networks
+{
+    color: white;
+    background-color: #7f0000;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.social-network 
+{
+    float: right;
+    
+}
+
+.social-net{
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.icon:hover{
+    background-color: #B20000;
+}
+
+.acreditacion
+{
+    float: right;
+}
+
