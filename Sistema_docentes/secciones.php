@@ -52,14 +52,11 @@
     
         <!-- Page Content -->
         <div id="page-content-wrapper">
-    
           <nav class="navbar navbar-expand-lg navbar-primary bg-dangeri border-bottom">
             <button class="btn bg-dangeri" id="menu-toggle"> <img src="static/img/layout.svg" style="width: 15px; height: 30px;"> </button>
-    
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-    
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
@@ -82,13 +79,40 @@
               </ul>
             </div>
           </nav>
-    
           <div class="container-fluid">
-            <h3 class="mt-4">Secciones</h3>
+            <h1 class="mt-4">
+            <?php
+                    if(isset($_SESSION['email'])){
+                        echo "Secciones";
+                    }
+                    else{
+                      header("Location: index.html");
+                    }
+                   
+                ?>            
+            </h1>
+            <div class="container">
+              <table class="table table-stripped table-dark table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="font-weight-light">#</th>
+                        <th>Asignatura</th>
+                        <th scope="col">Sección</th>
+                        <th scope="col">Cantidad de alumnos</th>
+                        <th scope="col"></th>       
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                        include 'conection_query.php';
+                        request_seccion();
+                      ?>              
+                    </tbody>            
+              </table>
+            </div>
           </div>
         </div>
-        <!-- /#page-content-wrapper -->
-    
+        <!-- /#page-content-wrapper --> 
       </div>
       <script>
         $("#menu-toggle").click(function(e) {
@@ -96,7 +120,5 @@
           $("#wrapper").toggleClass("toggled");
         });
       </script>
-
-
 </body>
 </html>
