@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,11 +20,7 @@
 <body>
   <?php
     session_start();
-    if($_SESSION!=null)
-    {
-
-    }
-    else
+    if($_SESSION==null)
     {
       header("Location: ../index.html");
     }
@@ -37,8 +33,8 @@
           <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel | Panel administrativo</div>
           <div class="list-group list-group-flush">
             <a href="mailbox.php" class="list-group-item list-group-item-action bg-dangeri text-light"><img src="static/img/email.svg" style="width: 22px;height: 37px;"> Correo</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Estado</a>
-            <a href="secciones.php" class="list-group-item list-group-item-action bg-dangeri text-light">Secciones</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Perfil</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Secciones</a>
             <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Horario</a>
             <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Solicitar sección</a>
             <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
@@ -60,14 +56,11 @@
     
         <!-- Page Content -->
         <div id="page-content-wrapper">
-    
           <nav class="navbar navbar-expand-lg navbar-primary bg-dangeri border-bottom">
             <button class="btn bg-dangeri" id="menu-toggle"> <img src="static/img/layout.svg" style="width: 15px; height: 30px;"> </button>
-    
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-    
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
@@ -80,7 +73,7 @@
                   <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Usuario
                   </a>
-                  <div class="dropdown-menu dropdown-menu-right bg-primary" aria-labelledby="navbarDropdown">
+                  <div class="dropdown-menu dropdown-menu-right bg-dangeri" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item text-light" href="#">Action</a>
                     <a class="dropdown-item text-light" href="#">Another action</a>
                     <div class="dropdown-divider"></div>
@@ -90,29 +83,16 @@
               </ul>
             </div>
           </nav>
-    
           <div class="container-fluid">
             <h1 class="mt-4">
-                <?php
-                    if(isset($_SESSION['email'])){
-                        echo "Bienvenido " . $_SESSION['email'];
-                    }
-                    else{
-                      
-                      header("Location: ../index.html");
-                      
-                    }
-                   
-                ?>
-
-
+            <?php
+                    echo $_GET['section'];                 
+                ?>            
             </h1>
-            <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-            <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
-          </div>
+            <h2>seccion 411</h2>
+            
         </div>
-        <!-- /#page-content-wrapper -->
-    
+        <!-- /#page-content-wrapper --> 
       </div>
       <script>
         $("#menu-toggle").click(function(e) {
@@ -120,7 +100,5 @@
           $("#wrapper").toggleClass("toggled");
         });
       </script>
-
-
 </body>
 </html>

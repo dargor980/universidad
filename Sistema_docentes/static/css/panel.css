@@ -92,6 +92,15 @@ li:hover{
   background-color: #ff0000;
 }
 
+a{
+  color: white;
+}
+
+a:hover{
+  text-decoration: none;
+  color: gray;
+}
+
 
 
 

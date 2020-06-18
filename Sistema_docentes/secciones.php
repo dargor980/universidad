@@ -20,6 +20,10 @@
 <body>
   <?php
     session_start();
+    if($_SESSION==null)
+    {
+      header("Location: ../index.html");
+    }
   ?>
     <div class="d-flex" id="wrapper" class="toggled">
         <!-- Sidebar -->
@@ -51,7 +55,7 @@
         <!-- /#sidebar-wrapper -->
     
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" class="contenido">
           <nav class="navbar navbar-expand-lg navbar-primary bg-dangeri border-bottom">
             <button class="btn bg-dangeri" id="menu-toggle"> <img src="static/img/layout.svg" style="width: 15px; height: 30px;"> </button>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,8 +83,8 @@
               </ul>
             </div>
           </nav>
-          <div class="container-fluid">
-            <h1 class="mt-4">
+          <div class="container-fluid ">
+            <h1 class="mt-4 border-bottom border-dark">
             <?php
                     if(isset($_SESSION['email'])){
                         echo "Secciones";
