@@ -32,10 +32,10 @@
           <div class="sidebar-heading text-light">
           <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel | Panel administrativo</div>
           <div class="list-group list-group-flush">
-            <a href="mailbox.php" class="list-group-item list-group-item-action bg-dangeri text-light"><img src="static/img/email.svg" style="width: 22px;height: 37px;"> Correo</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Perfil</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Secciones</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Horario</a>
+            <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light"><img src="static/img/email.svg" style="width: 22px;height: 37px;"> Correo</a>
+            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light">Perfil</a>
+            <a href="secciones.php" class="list-group-item list-group-item-action bg-dangeri text-light">Secciones</a>
+            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light">Horario</a>
             <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Solicitar sección</a>
             <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
             <div class="collapse" id="collapseExample">
@@ -59,7 +59,7 @@
           <nav class="navbar navbar-expand-lg navbar-primary bg-dangeri border-bottom">
             <button class="btn bg-dangeri" id="menu-toggle"> <img src="static/img/layout.svg" style="width: 15px; height: 30px;"> </button>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+              <span class="navbar-toggler-icon"><img src="static/img/arrow_down.png" alt="" style="widht: 32px; height:37px;"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -83,14 +83,60 @@
               </ul>
             </div>
           </nav>
-          <div class="container-fluid">
-            <h1 class="mt-4">
-            <?php
-                    echo $_GET['section'];                 
-                ?>            
-            </h1>
-            <h2>seccion 411</h2>
+          <div class="container">
+            <div class="container backa">
+              <h2 class="mt-4">
+                  <?php
+                      echo $_GET['section'];                 
+                  ?>            
+              </h2>
+              <p class="font-weight-normal"><strong class="font-weight-bold">Sección: </strong> <?php echo $_GET['cod_section']; ?></h5>
+              <p class="font-weight-normal"><strong class="font-weight-bold">Período: </strong>2020/1</p>
+              <p class="font-weight-normal"><strong class="font-weight-bold">Horario: </strong>(aqui va el horario)</p>
+              <div class="container-fluid">
+                <div class="row border-top border-white">
+                    <div class="col-xs-12 col-md-4">
+                      <div class="card">
+                        <div class="container cardo">
+                          <img src="static/img/announcement.png" alt="" class="card-img-top imagen">
+                        </div>
+                        
+                        <div class="card-body">
+                          <h5 class="card-subtitle mb-2 text-center">Anuncios</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                    <div class="card">
+                        <div class="container cardo">
+                          <img src="static/img/content.png" alt="" class="card-img-top imagen">
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-subtitle mb-2 text-center">Contenidos</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                    <div class="card">
+                        <div class="container cardo">
+                          <img src="static/img/lista.png" alt="" class="card-img-top imagen">
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-subtitle mb-2 text-center">Listado de alumnos</h5>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+            </div>
             
+
+
+            
+        </div>
+        <div class="container-fluid footer">
+          caca
         </div>
         <!-- /#page-content-wrapper --> 
       </div>
@@ -100,5 +146,6 @@
           $("#wrapper").toggleClass("toggled");
         });
       </script>
+     
 </body>
 </html>

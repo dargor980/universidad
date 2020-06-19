@@ -1,14 +1,10 @@
-<?php                      
+<?php 
+    include '../bd_universidad/API_REST_UNIVERSIDAD/conection.php'; 
+                                 
    function request_seccion() :void {
     $email= $_SESSION['email'];
-    $servername= "localhost";
-    $userDatabase ="root";
-    $passwordDatabase ="";
-    $database= "UNIVERSIDAD";
-                        
-    $con= mysqli_connect($servername,$userDatabase,$passwordDatabase,$database) or
-        die("Error en la conexión en la base de datos");
-                        
+    $con= connect();
+          
     $registro = mysqli_query($con, "SELECT s.cod_seccion, a.nombre FROM SECCION s, PROFESOR p, ASIGNATURA a
         WHERE s.cod_profesor=p.rut AND s.cod_asignatura=a.cod_asignatura
         AND s.cod_profesor=(SELECT c.cod_profesor FROM CREDENCIAL c, PROFESOR p WHERE c.cod_profesor=p.rut AND c.usuario='$email')") or
@@ -18,7 +14,7 @@
     while($reg=mysqli_fetch_array($registro)){ ?>
         <tr>
             <th scope="col"><?php echo $contador ?></th>
-            <th scope="col" class="font-weight-light" id="col"><a href="details_section.php?section=<?php echo $reg['nombre'] ?>"><?php echo $reg['nombre'] ?></a></th>
+            <th scope="col" class="font-weight-light" id="col"><a href="details_section.php?section=<?php echo $reg['nombre'] ?>&cod_section=<?php echo $reg['cod_seccion'] ?>"><?php echo $reg['nombre'] ?></a></th>
             <th scope="col" class="font-weight-light"><?php echo $reg['cod_seccion'] ?></th>
             <th scope="col" class="font-weight-light">
                 <?php

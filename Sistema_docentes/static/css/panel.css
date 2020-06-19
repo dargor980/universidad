@@ -41,7 +41,9 @@
   
   #page-content-wrapper {
     min-width: 100vw;
-    background-image: url(../img/background.jpg);
+    background-image: url('../img/background.png');
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   #wrapper.toggled #sidebar-wrapper {
@@ -100,7 +102,36 @@ a:hover{
   text-decoration: none;
   color: gray;
 }
+.info-sec{
+  padding-top: 20px;
+}
 
+.backa{
+  background-color: rgba(0,0,0,0.7) !important;
+
+  padding-bottom: 20px;
+  padding-left: 20px;
+  color: white;
+}
+
+div.backa h2{
+  padding-top: 20px;
+}
+
+.card{
+  background-color: transparent;
+  border: transparent;
+}
+
+.cardo{
+  padding-top: 20px;
+  
+}
+
+.footer
+{
+
+}
 
 
 

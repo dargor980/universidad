@@ -32,10 +32,10 @@
           <div class="sidebar-heading text-light">
           <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel | Panel administrativo</div>
           <div class="list-group list-group-flush">
-            <a href="mailbox.php" class="list-group-item list-group-item-action bg-dangeri text-light"><img src="static/img/email.svg" style="width: 22px;height: 37px;"> Correo</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Perfil</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Secciones</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Horario</a>
+            <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light"><img src="static/img/email.svg" style="width: 22px;height: 37px;"> Correo</a>
+            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light">Perfil</a>
+            <a href="secciones.php" class="list-group-item list-group-item-action bg-dangeri text-light">Secciones</a>
+            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light">Horario</a>
             <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Solicitar sección</a>
             <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
             <div class="collapse" id="collapseExample">
@@ -64,7 +64,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                  <a class="nav-link text-light" href="userPanel.php">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-light" href="panel_docentes.php">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light" href="#">Link</a>
@@ -95,7 +95,7 @@
                    
                 ?>            
             </h1>
-            <div class="container">
+            <div class="container info-sec">
               <table class="table table-stripped table-dark table-hover">
                     <thead>
                       <tr>
