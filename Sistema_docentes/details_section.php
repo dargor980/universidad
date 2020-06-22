@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Docentes | Plataforma de gestión académica Rexel</title>
     <link rel="shortcut icon" href="static/img/logo_wolf.ico" class="icon-pestaña">
-
+    <title>Inicio Docentes | Plataforma de gestión académica Rexel</title>
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">    
     <!--css-->
-
     <link rel="stylesheet" href="static/css/panel.css">
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="../bd_universidad/API_REST_UNIVERSIDAD/funcs.js"></script>
 </head>
 <body>
   <?php
+  
     session_start();
+    
     if($_SESSION==null)
     {
       header("Location: ../index.html");
@@ -83,11 +84,12 @@
               </ul>
             </div>
           </nav>
-          <div class="container">
+          <div class="container" id="contenido-principal">
             <div class="container backa">
               <h2 class="mt-4">
                   <?php
-                      echo $_GET['section'];                 
+                      echo $_GET['section'];  
+                      $section= $_GET['cod_section'];               
                   ?>            
               </h2>
               <p class="font-weight-normal"><strong class="font-weight-bold">Sección: </strong> <?php echo $_GET['cod_section']; ?></h5>
@@ -119,7 +121,7 @@
                     <div class="col-xs-12 col-md-4">
                     <div class="card">
                         <div class="container cardo">
-                          <img src="static/img/lista.png" alt="" class="card-img-top imagen">
+                          <a href="#" id="alumnos"><img src="static/img/lista.png" alt="" class="card-img-top imagen"></a>
                         </div>
                         <div class="card-body">
                           <h5 class="card-subtitle mb-2 text-center">Listado de alumnos</h5>
@@ -135,8 +137,8 @@
 
             
         </div>
-        <div class="container-fluid footer">
-          caca
+        <div class="container-fluid footer datagrid" id="datos">
+          aaaa
         </div>
         <!-- /#page-content-wrapper --> 
       </div>
@@ -144,6 +146,19 @@
         $("#menu-toggle").click(function(e) {
           e.preventDefault();
           $("#wrapper").toggleClass("toggled");
+        });
+      </script>
+      <script>
+        $("#alumnos").click(function(){
+          $.ajax(
+              {
+                url: '../bd_universidad/API_REST_UNIVERSIDAD/queryseccion.php?section=<?php echo $section; ?>',
+                success: function(data){
+                  alert('el servidor devolvio "'+data+'"');
+                  $(document).ready(function(){  
+                }
+              }
+          )
         });
       </script>
      

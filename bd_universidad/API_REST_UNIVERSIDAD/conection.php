@@ -7,7 +7,16 @@
 -->
 
 <?php
-    $email= $_SESSION['email'];
+    if(isset($_SESSION['email']))
+    {
+        $email=$_SESSION['email'];
+    }
+    else
+    {
+        session_start();
+        $email= $_SESSION['email'];
+    }
+    
     $conexion;
     function connect(){   
         $serverName= "localhost";
