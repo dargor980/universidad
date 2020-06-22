@@ -84,18 +84,20 @@
               </ul>
             </div>
           </nav>
-          <div class="container" id="contenido-principal">
-            <div class="container backa">
+          <div class="container">
+            <div class="container backa" >
               <h2 class="mt-4">
                   <?php
                       echo $_GET['section'];  
-                      $section= $_GET['cod_section'];               
+                      $section= $_GET['cod_section'];  
+                      $_SESSION['cod_section']=$section; 
+                      $_SESSION['section']=$_GET['section'];            
                   ?>            
               </h2>
               <p class="font-weight-normal"><strong class="font-weight-bold">Sección: </strong> <?php echo $_GET['cod_section']; ?></h5>
               <p class="font-weight-normal"><strong class="font-weight-bold">Período: </strong>2020/1</p>
               <p class="font-weight-normal"><strong class="font-weight-bold">Horario: </strong>(aqui va el horario)</p>
-              <div class="container-fluid">
+              <div class="container-fluid" id="contenido-principal">
                 <div class="row border-top border-white">
                     <div class="col-xs-12 col-md-4">
                       <div class="card">
@@ -137,9 +139,6 @@
 
             
         </div>
-        <div class="container-fluid footer datagrid" id="datos">
-          aaaa
-        </div>
         <!-- /#page-content-wrapper --> 
       </div>
       <script>
@@ -149,17 +148,7 @@
         });
       </script>
       <script>
-        $("#alumnos").click(function(){
-          $.ajax(
-              {
-                url: '../bd_universidad/API_REST_UNIVERSIDAD/queryseccion.php?section=<?php echo $section; ?>',
-                success: function(data){
-                  alert('el servidor devolvio "'+data+'"');
-                  $(document).ready(function(){  
-                }
-              }
-          )
-        });
+        
       </script>
      
 </body>

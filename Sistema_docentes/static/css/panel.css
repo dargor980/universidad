@@ -30,7 +30,7 @@
   
   #sidebar-wrapper .sidebar-heading {
     padding: 0.875rem 1.25rem;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     background-color: #cc0000;
   }
   
@@ -133,7 +133,13 @@ div.backa h2{
 
 }
 
+.lista-estudiantes{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
-
+.text-sidebar{
+  font-size: 14px;
+}
   
  

@@ -20,7 +20,7 @@
 <body>
   <?php
     session_start();
-    if($_SESSION!=null)
+    if(isset($_SESSION['email']))
     {
 
     }
@@ -34,14 +34,15 @@
         <div class="bg-dangeri border-right" id="sidebar-wrapper">
         
           <div class="sidebar-heading text-light">
-          <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel | Panel administrativo</div>
+          <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel </div>
+          <div class="sidebar-heading text-light">Docente</div>
           <div class="list-group list-group-flush">
-            <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light"><img src="static/img/email.svg" style="width: 22px;height: 37px;"> Correo</a>
-            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light">Perfil</a>
-            <a href="secciones.php" class="list-group-item list-group-item-action bg-dangeri text-light">Secciones</a>
-            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light">Horario</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Solicitar sección</a>
-            <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
+            <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar"><img src="static/img/email.svg" style="width: 22px;height: 37px;"> Correo</a>
+            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Perfil</a>
+            <a href="secciones.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Secciones</a>
+            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Horario</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Solicitar sección</a>
+            <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
             <div class="collapse" id="collapseExample">
             <div class="container-fluid">
                 <div class="container">
