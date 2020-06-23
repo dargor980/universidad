@@ -34,7 +34,7 @@
         <div class="bg-dangeri border-right" id="sidebar-wrapper">
         
           <div class="sidebar-heading text-light">
-          <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel | Panel administrativo</div>
+          <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel</div>
           <div class="list-group list-group-flush">
             <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light"><img src="static/img/email.svg" style="width: 22px;height: 37px;"> Correo</a>
             <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light">Perfil</a>
@@ -91,12 +91,123 @@
             </div>
           </nav>
     
-          <div class="container-fluid">
-            <h1 class="mt-4">
-               
+          <div class="container">
+            <div class="container backa">
+                <h4 class="mt-4 border-bottom border-white">
+                  Horario Docente
+                </h4>
 
+                <div class="container horario">
+                  <table class="table table-stripped table-dark tabla-horario">
+                    <thead>
+                      <tr>
+                        <th scope="col">Período</th>
+                        <th scope="col">Bloque</th>
+                        <th scope="col">Lunes</th>
+                        <th scope="col">Martes</th>
+                        <th scope="col">Miércoles</th>
+                        <th scope="col">Jueves</th>
+                        <th scope="col">Viernes</th>
+                        <th scope="col">Sábado</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-danger">
+                      <tr>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">1</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">8:00-9:30</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                      </tr>
+                      <tr>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">2</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">9:40-11:10</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                      </tr>
+                      <tr>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">3</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">11:20-12:50</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                      </tr>
+                      <tr>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">4</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">13:00-14:30</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                      </tr>
+                      <tr>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">5</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">14:40-16:10</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                      </tr>
+                      <tr>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">6</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">16:20-17:50</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                      </tr>
+                      <tr>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">7</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">18:00-19:30</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                      </tr>
+                      <tr>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">8</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">19:40-21:10</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                      </tr>
+                      <tr >
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">9</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">21:20-22:30</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                      </tr>
 
-            </h1>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            
           </div>
         </div>
         <!-- /#page-content-wrapper -->

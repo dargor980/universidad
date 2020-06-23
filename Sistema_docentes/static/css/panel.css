@@ -141,5 +141,23 @@ div.backa h2{
 .text-sidebar{
   font-size: 14px;
 }
+
+h4{
+  padding-top: 20px;
+}
+
+.horario{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.campo{
+  padding: 0;
+  font-size: 14px;
+}
+
+.tabla-horario{
+  border-radius: 8px;
+}
   
  

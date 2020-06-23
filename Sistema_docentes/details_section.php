@@ -31,7 +31,7 @@
         <div class="bg-dangeri border-right" id="sidebar-wrapper">
         
           <div class="sidebar-heading text-light">
-          <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel | Panel administrativo</div>
+          <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel</div>
           <div class="list-group list-group-flush">
             <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light"><img src="static/img/email.svg" style="width: 22px;height: 37px;"> Correo</a>
             <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light">Perfil</a>
