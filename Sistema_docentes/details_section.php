@@ -65,7 +65,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                  <a class="nav-link text-light" href="userPanel.php">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-light" href="panel_docentes.php">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light" href="#">Link</a>
@@ -102,7 +102,7 @@
                     <div class="col-xs-12 col-md-4">
                       <div class="card">
                         <div class="container cardo">
-                          <img src="static/img/announcement.png" alt="" class="card-img-top imagen">
+                          <a href="#" id="Anuncios"><img src="static/img/announcement.png" alt="" class="card-img-top imagen"></a>
                         </div>
                         
                         <div class="card-body">
@@ -113,7 +113,7 @@
                     <div class="col-xs-12 col-md-4">
                     <div class="card">
                         <div class="container cardo">
-                          <img src="static/img/content.png" alt="" class="card-img-top imagen">
+                          <a href="#" id="contenidos"><img src="static/img/content.png" alt="" class="card-img-top imagen"></a>
                         </div>
                         <div class="card-body">
                           <h5 class="card-subtitle mb-2 text-center">Contenidos</h5>
