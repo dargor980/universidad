@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Docentes | Plataforma de gestión académica Rexel</title>
+    <title>Perfil | Plataforma de gestión académica Rexel</title>
     <link rel="shortcut icon" href="static/img/logo_wolf.ico" class="icon-pestaña">
 
     <!--Bootstrap-->
@@ -20,7 +20,8 @@
 <body>
   <?php
     session_start();
-    if($_SESSION!=null)
+    include '../bd_universidad/API_REST_UNIVERSIDAD/funcs.php';
+    if(isset($_SESSION['email']))
     {
 
     }
@@ -89,11 +90,35 @@
           </nav>
     
           <div class="container-fluid">
-            <h1 class="mt-4">
-               
-
-
-            </h1>
+          <div class="container backa">
+              <h4 class="mt-4 border-bottom border-white">
+                  Perfil
+               </h4>
+               <div class="row profile"> 
+                  <div class="col-xs-12 col-md-4 foto-section">
+                      <div class="border border-white rounded" id="imagen_perfil">
+                      <?php $ruta= showImagenPerfilDocente(); echo "<img src=\"$ruta\" style=\"width:218px; height:198px;\" class=\"rounded\">";?>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-md-8 ">
+                        <?php $reg=GetDocente(); ?>
+                        <div class="head-profile border-bottom border-white" id="head_profile">
+                          <h4><?php echo $reg['nombre']." ".$reg['apellido'];?></h4>
+                          <h6>Docente</h6>
+                        </div>
+                        <div class="info-section">
+                          
+                          <p class="font-weight-normal"><strong class="font-weight-bold">Rut: </strong><?php echo $reg['rut'];?></p>
+                          <p class="font-weight-normal"><strong class="font-weight-bold">Correo: </strong><?php echo $reg['correo'];?></p>
+                          <p class="font-weight-normal"><strong class="font-weight-bold">Teléfono: </strong><?php echo $reg['telefono'];?></p>
+                          <p class="font-weight-normal"><strong class="font-weight-bold">Comuna: </strong><?php echo $reg['comuna'];?></p>
+                          <p class="font-weight-normal"><strong class="font-weight-bold">Dirección: </strong><?php echo $reg['direccion'];?></p>
+                        </div>
+                        
+                  </div> 
+               </div>
+          </div>
+            
           </div>
         </div>
         <!-- /#page-content-wrapper -->

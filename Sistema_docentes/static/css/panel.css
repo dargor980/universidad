@@ -159,5 +159,23 @@ h4{
 .tabla-horario{
   border-radius: 8px;
 }
+
+#imagen_perfil{
+  width: 220px;
+  height: 200px;
+}
+.profile{
+  padding-top: 30px;
+}
+
+.foto-section{
+  margin-right: -10%;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.info-section{
+  padding-top: 20px;
+}
   
  
