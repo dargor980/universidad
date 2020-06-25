@@ -1,6 +1,4 @@
-<?php 
-    include '../bd_universidad/API_REST_UNIVERSIDAD/conection.php'; 
-                                 
+<?php                                 
    function request_seccion() :void {
     $email= $_SESSION['email'];
     $con= connect();

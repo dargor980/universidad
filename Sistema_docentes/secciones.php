@@ -20,6 +20,7 @@
 <body>
   <?php
     session_start();
+    include '../bd_universidad/API_REST_UNIVERSIDAD/funcs.php';
     if($_SESSION==null)
     {
       header("Location: ../index.html");
@@ -31,21 +32,22 @@
         
           <div class="sidebar-heading text-light">
           <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel</div>
+          <div class="sidebar-heading text-light"><span><?php $ruta= showImagenPerfilDocente(); echo "<img src=\"$ruta\" style=\"width:40px; height:40px; border-radius: 50%;\">"; ?></span>  Docente</div>
           <div class="list-group list-group-flush">
-            <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light"><img src="static/img/email.svg" style="width: 22px;height: 37px;"> Correo</a>
-            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light">Perfil</a>
-            <a href="secciones.php" class="list-group-item list-group-item-action bg-dangeri text-light">Secciones</a>
-            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light">Horario</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light">Solicitar sección</a>
-            <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
+            <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar"><img src="static/img/email.svg" style="width: 14px;height: 20px;"> Correo</a>
+            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Perfil</a>
+            <a href="secciones.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Secciones</a>
+            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Horario</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Solicitar sección</a>
+            <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
             <div class="collapse" id="collapseExample">
             <div class="container-fluid">
                 <div class="container">
                     <br>
                     <ul class="border-left border-white docs">
-                        <li class="docs">Liquidaciones de sueldo</li>
-                        <li class="docs">Notificar licencia médica</li>
-                        <li class="docs">Contrato</li>
+                        <li class="docs text-sidebar">Liquidaciones de sueldo</li>
+                        <li class="docs text-sidebar">Notificar licencia médica</li>
+                        <li class="docs text-sidebar">Contrato</li>
                     </ul>
                 </div>   
             </div>

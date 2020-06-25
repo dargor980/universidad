@@ -177,5 +177,16 @@ h4{
 .info-section{
   padding-top: 20px;
 }
-  
+
+#upload_imagen{
+  width: 220px;
+}
+
+.upload_imagen{
+  padding-top: 10px;
+}
+
+.modal-contenido{
+  color: black;
+}
  

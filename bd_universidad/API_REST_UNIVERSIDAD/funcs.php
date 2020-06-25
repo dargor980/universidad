@@ -9,12 +9,14 @@
             die("Query error: ".mysqli_error($con));
         if($result=mysqli_fetch_array($query))
         {
+            mysqli_close($con);
             return $result['ruta_foto_perfil'];
         }
         else
         {
             echo "error";
         }
+        mysqli_close($con);
     }
 
     function showImagenPerfilEstudiante():void
@@ -27,15 +29,22 @@
             $imgDatos=mysqli_fetch_assoc($query);
             header("Content-Type: image/png");
             echo $imgDatos['foto_perfil'];
+            mysqli_close($con);
         }
         else
         {
+            mysqli_close($con);
         }
     }
 
     function UpdateImagenPerfilDocente():void 
     {
-       
+        $con=connect();
+        $foto=$_POST['foto'];
+        copy($_FILES['foto']['tmp_name'],$_FILES['foto']['name']);
+        echo "la foto se registro en el servidor";
+        $nom = $_FILES['foto']['name'];
+        echo "<img src=\"$nom\">";     
     } 
 
     function AddDocente():void
@@ -81,13 +90,16 @@
             $ruta=$_POST['ruta'];
             mysqli_query($con,"INSERT INTO ESTUDIANTE (rut,nombre,apellido,fecha_nacimiento,correo,estado,ruta_archivo) VALUES ('$rut','$name','$lastName','$bornDate','$correo',$status,'$ruta')") or
                 die("Error until upload data to database: ".mysqli_error($con));
+            mysqli_query($con,"INSERT INTO CREDENCIAL (cod_credencial,cod_estudiante,usuario,contrasena) VALUES ('$cod_credencial','$rut','$user','$password')") or 
+                die("Error until upload data to database: ".mysqli_error($con));
         }else{
             mysqli_query($con,"INSERT INTO ESTUDIANTE (rut,nombre,apellido,fecha_nacimiento,correo,estado) VALUES ('$rut','$name','$lastName','$bornDate','$correo',$status)") or
                 die("Error until upload data to database: ".mysqli_error($con));
-
+            mysqli_query($con,"INSERT INTO CREDENCIAL (cod_credencial,cod_estudiante,usuario,contrasena) VALUES ('$cod_credencial','$rut','$user','$password')") or 
+                die("Error until upload data to database: ".mysqli_error($con));
+            mysqli_close($con);
         }
-        mysqli_query($con,"INSERT INTO CREDENCIAL (cod_credencial,cod_estudiante,usuario,contrasena) VALUES ('$cod_credencial','$rut','$user','$password')") or 
-            die("Error until upload data to database: ".mysqli_error($con));
+        
     }
 
     function AddSeccion():void
@@ -101,9 +113,11 @@
             $cod_profesor=$_POST['cod_profesor'];
             mysqli_query($con,"INSERT INTO SECCION (cod_seccion,cod_profesor,cod_asignatura,anio_semestre) VALUES('$cod_seccion','$cod_profesor','$cod_asignatura','$anio_semestre')") or
                 die("Error until upload data to database: ".mysqli_error($con));
+            mysqli_close($con);
         }else{
             mysqli_query($con,"INSERT INTO SECCION (cod_seccion,cod_asignatura,anio_semestre) VALUES('$cod_seccion','$cod_asignatura','$anio_semestre')") or
                 die("Error until upload data to database: ".mysqli_error($con));
+            mysqli_close($con);
         }
     }
 
@@ -115,9 +129,14 @@
         $semestres=$_POST['semestres'];
         mysqli_query($con,"INSERT INTO CARRERA (cod_carrera,nombre,semestres) VALUES('$cod_carrera','$name',$semestres)") or
             die("Error until upload data to database: ".mysqli_error($con));
+        mysqli_close($con);
 
     }
 
+    function addCredencial():void 
+    {
+
+    }
     function addMatricula():void
     {
         $con=connect();
@@ -126,6 +145,7 @@
         $year=$_POST['year'];
         mysqli_query($con,"INSERT INTO MATRICULA (cod_estudiante,cod_carrera,anio) VALUES('$rut','$cod_carrera','$year'))") or
             die("Error until upload data to database: ".mysqli_error($con));
+        mysqli_close($con);
 
     }
 
@@ -158,6 +178,7 @@
     function GetHorarioDocente():void
     {
 
+
     }
 
     function GetHorarioEstudiante():void 
@@ -173,10 +194,23 @@
             die("Query Error: ".mysqli_error($con));
         if($reg=mysqli_fetch_array($query))
         {
+            mysqli_close($con);
             return $reg;
         }
     }
 
+    function getRutEstudiante()
+    {
+        $user=$_SESSION['email'];
+        $con=connect();
+        $query=mysqli_query($con,"SELECT e.rut FROM ESTUDIANTE e, CREDENCIAL c WHERE e.rut=c.cod_estudiante AND c.usuario='$user'") or
+            die("Query error: ".mysqli_error($con));
+        if($reg=mysqli_fetch_array($query))
+        {
+            mysqli_close($con);
+            return $reg;
+        }
+    }
     function GetDocente()
     {
         $con=connect();
@@ -185,6 +219,7 @@
             die("Query Error: ".mysqli_error($con));
         if($reg=mysqli_fetch_array($query))
         {
+            mysqli_close($con);
             return $reg;
         }
     }
@@ -197,6 +232,7 @@
             die("Query Error: ".mysqli_error($con));
         if($reg=mysqli_fetch_array($query))
         {
+            mysqli_close($con);
             return $reg;
         }
     }
@@ -208,8 +244,10 @@
             die("Query error: ".mysqli_error($con));
         if($reg=mysqli_fetch_array($query))
         {
+            mysqli_close($con);
             return true;
         }else{
+            mysqli_close($con);
             return false;
         }
     }
@@ -222,20 +260,44 @@
             die("Query Error: ".mysqli_error($con));
         if($reg=mysqli_fetch_array($query))
         {
+            mysqli_close($con);
             return true;
         }else{
+            mysqli_close($con);
             return false;
         }
     }
 
     function isSeccionExists()
     {
+        $con=connect();
+        $cod_seccion=$_POST['cod_seccion'];
+        $query=mysqli_query($con,"SELECT *FROM SECCION WHERE cod_seccion=$cod_seccion") or
+            die("Query error: ".mysqli_error($con));
+        if($result=mysqli_fetch_array($query)){
+            mysqli_close($con);
+            return true;
+        }else{
+            mysqli_close($con);
+            return false;
+        }
 
     }
 
     function isAsignaturaExists()
     {
-
+        $con=connect();
+        $asignatura=$_POST['asignatura'];
+        $query=mysqli_query($con,"SELECT cod_asignatura FROM ASIGNATURA WHERE nombre='$asignatura'") or 
+            die("Query error: ".mysqli_error($con));
+        if($result=mysqli_fetch_array($query))
+        {
+            mysqli_close($con);
+            return true;
+        }else{
+            mysqli_close($con);
+            return false;
+        }
     }
 
     function updateDocente():void
@@ -243,14 +305,94 @@
 
     }
 
-    function updateEstudiante():void
+    function updateTelefonoEstudiante():void
     {
+        $rut=$_POST['rut'];
+        $phone=$_POST['phone'];
+        $con=connect();
+        mysqli_query($con,"UPDATE ESTUDIANTE SET telefono='$phone' WHERE rut='$rut'") or
+            die("Error to try update: ".mysqli_error($con));
+        mysqli_close($con);
+    }
 
+    function updateCorreoEstudiante():void 
+    {
+        $rut=$_POST['rut'];
+        $correo=$_POST['correo'];
+        $con=connect();
+        mysqli_query($con,"UPDATE ESTUDIANTE SET correo='$correo' WHERE rut='$rut'") or
+            die("Error to try update: ".mysqli_error($con));
+        mysqli_close($con);
+    }
+
+    function updateComunaEstudiante():void
+    {
+        $rut=$_POST['rut'];
+        $comuna=$_POST['comuna'];
+        $con=connect();
+        mysqli_query($con,"UPDATE ESTUDIANTE SET comuna='$comuna' WHERE rut='$rut'") or
+            die("Error to try update: ".mysqli_error($con));
+        mysqli_close($con);
+    }
+    function updateDireccionEstudiante():void 
+    {
+        $rut=$_POST['rut'];
+        $address=$_POST['address'];
+        $con=connect();
+        mysqli_query($con,"UPDATE ESTUDIANTE SET direccion='$address' WHERE rut='$rut'") or 
+            die("Error to try update: ".mysqli_error($con));
+        mysqli_close($con);
+    }
+
+    function updateCorreoDocente():void 
+    {
+        $rut=getRutProfesor();
+        $correo=$_POST['correo'];
+        $con=connect();
+        mysqli_query($con,"UPDATE PROFESOR SET correo='$correo' WHERE rut='$rut[rut]'") or 
+            die("Error to try update: ".mysqli_error($con));
+        mysqli_close($con);
+    }
+
+    function updateComunaDocente():void 
+    {
+        $rut=getRutProfesor();
+        $comuna=$_POST['comuna'];
+        $con=connect();
+        mysqli_query($con,"UPDATE PROFESOR SET comuna='$comuna' WHERE rut='$rut[rut]'") or 
+            die("Error to try update: ".mysqli_error($con));
+        mysqli_close($con);
+
+    }
+
+    function updateDireccionDocente():void 
+    {
+        $rut=getRutProfesor();
+        $address=$_POST['address'];
+        $con=connect();
+        mysqli_query($con,"UPDATE PROFESOR SET direccion='$address' WHERE rut='$rut[rut]'") or
+            die("Error to try update: ".mysqli_error($con));
+        mysqli_close($con);
     }
 
     function estudianteIsInSeccion()
     {
         $con=connect();
-        
+
+    }
+
+    function updateEstadoEstudiante():void
+    {
+        $rut=$_POST['rut'];
+        $con=connect();
+        $status=$_POST['status'];
+        mysqli_query($con,"UPDATE ESTUDIANTE SET cod_estado=$status WHERE rut='$rut'") or
+            die("Error to try update: ".mysqli_error($con));
+        mysqli_close($con);
+    } 
+
+    if(isset($_POST['foto'])){
+        UpdateImagenPerfilDocente();
     }
 ?>
+
