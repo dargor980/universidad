@@ -37,15 +37,26 @@
         }
     }
 
-    function UpdateImagenPerfilDocente():void 
+
+    function uploadImagenPerfilDocente():void 
     {
-        $con=connect();
-        $foto=$_POST['foto'];
+
         copy($_FILES['foto']['tmp_name'],$_FILES['foto']['name']);
         echo "la foto se registro en el servidor";
         $nom = $_FILES['foto']['name'];
-        echo "<img src=\"$nom\">";     
+        $ruta_destino="/sistema_universidad/Sistema_docentes/static/img/profile/";
+        $carpeta_destino=$_SERVER['DOCUMENT_ROOT'].$ruta_destino;
+        move_uploaded_file($_FILES['foto']['tmp_name'],$carpeta_destino.$nom);
+        $rut=getRutProfesor();
+        $ruta_acceso="static/img/profile/".$nom;
+        $con=connect();
+        mysqli_query($con,"UPDATE PROFESOR SET ruta_foto_perfil='$ruta_acceso' WHERE rut='$rut[rut]'") or
+            die("Error to try update: ".mysqli_error($con));
+        mysqli_close($con);
+        unlink($nom);  
     } 
+    
+
 
     function AddDocente():void
     {
@@ -151,7 +162,12 @@
 
     function AddEstudianteToSeccion():void 
     {
-
+        $con=connect();
+        $cod_seccion=$_POST['cod_section'];
+        $rut=getRutEstudiante();
+        mysqli_query($con,"INSERT INTO ESTADO_CURSO (cod_estudiante,cod_seccion,asistencia) VALUES('$rut[rut]',$cod_seccion,1)") or
+            die("Error to try upload: ".mysqli_error($con));
+        mysqli_close($con);
     }
 
     function DeleteDocente():void
@@ -184,6 +200,35 @@
     function GetHorarioEstudiante():void 
     {
 
+    }
+
+    function getMallaCurricular(){
+        
+    }
+
+    function getAsignatura()
+    {
+        $con=connect();
+        $cod_asignatura=$_POST['cod_asignatura'];
+        $query=mysqli_query($con,"SELECT *FROM ASIGNATURA WHERE cod_asignatura='$cod_asignatura'") or
+            die("Query error: ".mysqli_error($con));
+        if($result=mysqli_fetch_array($query))
+        {
+            mysqli_close($con);
+            return result;
+        }
+    }
+
+    function getMatriculaEstudiante()
+    {
+        $con=connect();
+        $rut=$_POST['rut'];
+        $query=mysqli_query($con,"SELECT *FROM MATRICULA WHERE cod_estudiante='$rut[rut]'") or
+            die("Query error: ".mysqli_error($con));
+        if($result=mysqli_fetch_array($query))
+        {
+            return $result;
+        }
     }
 
     function getRutProfesor()
@@ -300,11 +345,6 @@
         }
     }
 
-    function updateDocente():void
-    {
-
-    }
-
     function updateTelefonoEstudiante():void
     {
         $rut=$_POST['rut'];
@@ -378,7 +418,18 @@
     function estudianteIsInSeccion()
     {
         $con=connect();
-
+        $seccion=$_POST['cod_seccion'];
+        $rut=getRutEstudiante();
+        $query=mysqli_query($con,"SELECT *FROM ESTADO_CURSO WHERE cod_estudiante='$rut[rut]' AND cod_seccion=$cod_seccion") or
+            die("Query error: ".mysqli_error($con));
+        if($result=mysqli_fetch_array($query))
+        {
+            mysqli_close($con);
+            return true;
+        }else{
+            mysqli_close($con);
+            return false;
+        }
     }
 
     function updateEstadoEstudiante():void
@@ -391,8 +442,8 @@
         mysqli_close($con);
     } 
 
-    if(isset($_POST['foto'])){
-        UpdateImagenPerfilDocente();
+    if(isset($_FILES['foto'])){
+        uploadImagenPerfilDocente();
     }
 ?>
 
