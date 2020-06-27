@@ -11,11 +11,7 @@
         {
             mysqli_close($con);
             return $result['ruta_foto_perfil'];
-        }
-        else
-        {
-            echo "error";
-        }
+        }      
         mysqli_close($con);
     }
 
@@ -56,7 +52,6 @@
         unlink($nom);  
     } 
     
-
 
     function AddDocente():void
     {
@@ -132,6 +127,11 @@
         }
     }
 
+    function addAsignatura():void 
+    {
+
+    }
+
     function addCarrera():void
     {
         $con=connect();
@@ -172,37 +172,85 @@
 
     function DeleteDocente():void
     {
-        
+        $con=connect();
+        $rut=$_POST['rut'];
+        if(!DocenteIsInAnySeccion())
+        {
+            mysqli_query($con,"DELETE FROM PROFESOR WHERE rut='$rut'") or
+                die("Error to try delete: ".mysqli_error($con));
+            mysqli_close($con);
 
+        }
     }
 
     function DeleteEstudiante():void
     {
+        $rut=$_POST['rut'];
+        if(estudianteIsInAnySeccion())
+        {
+            deleteEstudianteOfAllSeccions();
+            $con=connect();
+            mysqli_query($con,"DELETE FROM ESTUDIANTE WHERE rut='$rut'") or
+                die("Error to try delete: ".mysqli_error($con));
+            
+        }else{
+            $con=connect();
+            mysqli_query($con,"DELETE FROM ESTUDIANTE WHERE rut='$rut'") or
+                die("Error to try delete: ".mysqli_error($con));
+
+        }
+        mysqli_close($con);
         
     }
 
     function DeleteSeccion():void 
     {
+        $cod_seccion=$_POST['cod_seccion'];
+        $con=connect();
+        $mysqli_query($con,"DELETE FROM SECCION WHERE cod_seccion=$cod_seccion") or
+            die("Error to try delete: ".mysqli_error($con));
+        mysqli_close($con);
+    }
+
+    function deleteEstudianteOfSeccion():void
+    {
+        $rut=$_POST['rut'];
+        $cod_seccion=$_POST['cod_seccion'];
+        $con=connect();
+        mysqli_query($con,"DELETE FROM ESTADO_CURSO WHERE cod_estudiante='$rut' AND cod_seccion=$cod_seccion") or
+            die("Error to try delete: ".mysqli_error($con));
+        mysqli_close($con);
+    }
+
+    function deleteEstudianteOfAllSeccions():void 
+    {
+        $rut=$_POST['rut'];
+        $con=connect();
+        mysqli_query("$con","DELETE FROM ESTADO_CURSO WHERE cod_estudiante='$rut'") or
+            die("Error to try delete: ".mysqli_error($con));
+        mysqli_close($con);
+    }
+
+    function getHorarioDocente():void
+    {
+
 
     }
 
-    function DeleteEstudianteToSeccion():void
+    function getHorarioEstudiante():void 
+    {
+
+    }
+    
+    function getAvanceDeMalla():void 
     {
 
     }
 
-    function GetHorarioDocente():void
+    
+    function getMallaCurricular()
     {
 
-
-    }
-
-    function GetHorarioEstudiante():void 
-    {
-
-    }
-
-    function getMallaCurricular(){
         
     }
 
@@ -432,6 +480,39 @@
         }
     }
 
+    function estudianteIsInAnySeccion()
+    {
+        $con=connect();
+        $rut=$_POST['rut'];
+        $query=mysqli_query($con,"SELECT *FROM ESTADO_CURSO WHERE cod_estudiante='$rut'") or
+            die("Query Error: ".mysqli_error($con));
+        if($result=mysqli_fetch_array($query))
+        {
+            mysqli_close($con);
+            return true;
+        }else{
+            mysqli_close($con);
+            return false;
+        }
+    }
+
+    function DocenteIsInAnySeccion()
+    {
+        $con=connect();
+        $rut=$_POST['rut'];
+        $query=mysqli_query($con,"SELECT *FROM SECCION WHERE cod_profesor='$rut'") or 
+            die("Query Error: ".mysql_error($con));
+        if($result=mysqli_fetch_array($query))
+        {
+            mysqli_close($con);
+            return true;
+        }
+        else{
+            mysqli_close($con);
+            return false;
+        }
+    }
+
     function updateEstadoEstudiante():void
     {
         $rut=$_POST['rut'];
@@ -442,8 +523,26 @@
         mysqli_close($con);
     } 
 
+    function inscribirEstudianteCarrera():void
+    {
+        $con=connect();
+        $rut=$_POST['rut'];
+        
+
+    }
+
+    function getPlanDeEstudios():void
+    {
+
+    }
+
+
+
     if(isset($_FILES['foto'])){
         uploadImagenPerfilDocente();
     }
+
+    
+
 ?>
 
