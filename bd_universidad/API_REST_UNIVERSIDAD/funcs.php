@@ -129,7 +129,17 @@
 
     function addAsignatura():void 
     {
+        
+        $cod_asignatura=$_POST['cod_asignatura'];
+        $nombre=$_POST['asignatura'];
+        if(!isAsignaturaExists())
+        {
+            $con=connect();
+            mysqli_query($con,"INSERT INTO ASIGNATURA (cod_asignatura,nombre) VALUES('$cod_asignatura','$nombre')") or
+                die("Error to try insert: ".mysqli_error($con));
+            mysqli_close($con);
 
+        }
     }
 
     function addCarrera():void
@@ -522,11 +532,35 @@
             die("Error to try update: ".mysqli_error($con));
         mysqli_close($con);
     } 
-
+    function isEstudianteMatriculado()
+    {
+        $rut=$_POST['rut'];
+        $cod_carrera=$_POST['cod_carrera'];
+        $con=connect();
+        $anio=date("L");
+        $query=mysqli_query($con,"SELECT *FROM MATRICULA WHERE cod_estudiante='$rut' AND cod_carrera='$cod_carrera' AND YEAR(anio)=$anio") Or 
+            die("Query error: ".mysqli_error($con));
+        if($result=mysqli_fetch_array($query))
+        {
+            mysqli_close($con);
+            return true;
+        }else
+        {
+            mysqli_close($con);
+            return false;
+        }
+    }
     function inscribirEstudianteCarrera():void
     {
-        $con=connect();
-        $rut=$_POST['rut'];
+        if(!isEstudianteMatriculado())
+        {
+            $con=connect();
+            $rut=$_POST['rut'];
+            $cod_carrera=$_POST['cod_carrera'];
+            $fecha_ingreso=date();
+            mysqli_query($con,"INSERT INTO INSCRITO (cod_estudiante,cod_carrera,semestre_inicio) VALUES('$rut','$cod_carrera','$fecha_ingreso')") or 
+                die("Error to try insert: ".mysqli_error($con));
+        }
         
 
     }

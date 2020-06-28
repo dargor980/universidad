@@ -1,0 +1,10 @@
+body{
+    background-image: url('../img/manada-de-lobos.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.modal-content{
+    background-color: rgba(0,0,0, 0.5) !important;
+    color: white;
+}
