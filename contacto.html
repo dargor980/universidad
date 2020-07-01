@@ -10,6 +10,8 @@
     <!--css-->
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="stylesheet" href="static/css/contact.css">
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <title>Inicio</title>
 </head>
 
@@ -52,44 +54,48 @@
                 <div class="title">
                     <h4>Contáctese con nosotros</h4>
                 </div>
-                <form action="" class="col-12">
-                    <div class="contact-group" id="namegroup">
-                        <span class="col-md-1 col-md-offset-2 text-center"><img src="" alt=""></span>
-                        <label for="">Nombre</label>
-                        <input type="text" class="form-control" placeholder="Ingrese el nombre">
+                <form action="" class="col-12 contacto">
+                    <div class="contact-group input-group form-group" id="namegroup">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>         
+                        <input type="text" class="form-control" placeholder="Nombre">
                     </div>
 
-                    <div class="contact-group" id="lastnamegroup">
-                        <span class="col-md-1 col-md-offset-2 text-center"><img src="" alt=""></span>
-                        <label for="">Apellido</label>
-                        <input type="text" class="form-control" placeholder="Ingrese el apellido">
+                    <div class="contact-group input-group form-group" id="lastnamegroup">
+                        
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>      
+                        <input type="text" class="form-control" placeholder="Apellido">
                     </div>
 
-                    <div class="contact-group" id="emailgroup">
-                        <span class="col-md-1 col-md-offset-2 text-center"><img src="" alt=""></span>
-                        <label for="">Email</label>
-                        <input type="email" class="form-control" placeholder="Ingrese el email">
+                    <div class="contact-group input-group form-group" id="emailgroup">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>  
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="contact-group input-group form-group" id=phonegroup>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        </div>
+                       <input type="text" class="form-control" placeholder="Teléfono de contacto">
+                    </div>
+                    <div class="contact-group input-group form-group" id="asuntogroup">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-edit"></i></span>
+                        </div> 
+                        <input type="text" class="form-control" placeholder="Asunto">
+                    </div>
+                    <div class="contact-group input-group form-group" id="messagegroup">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-edit"></i></span>
+                        </div>         
+                        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Mensaje"></textarea>
                     </div>
 
-                    <div class="contact-group" id=phonegroup>
-                        <span class="col-md-1 col-md-offset-2 text-center"><img src="" alt=""></span>
-                        <label for="">Teléfono</label>
-                        <input type="text" class="form-control" placeholder="Ingrese número de contacto">
-                    </div>
-
-                    <div class="contact-group" id="asuntogroup">
-                        <span class="col-md-1 col-md-offset-2 text-center"><img src="" alt=""></span>
-                        <label for="">Asunto</label>
-                        <input type="text" class="form-control" placeholder="Ingrese el asunto">
-                    </div>
-
-                    <div class="contact-group" id="messagegroup">
-                        <span class="col-md-1 col-md-offset-2 text-center"><img src="" alt=""></span>
-                        <label for="">Mensaje</label>
-                        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Escriba aquí su mensaje"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary"><img src="" alt="">Enviar</button>
+                    <button type="submit" class="btn btn-primary enviar"><i class="fas fa-paper-plane"></i> Enviar</button>
                 </form>
             </div>
         </div>

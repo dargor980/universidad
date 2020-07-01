@@ -1,0 +1,192 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+ /*#page-content-wrapper::before{
+  content:'';
+  position: absolute;
+      top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+
+}*/
+
+ body {
+    overflow-x: hidden;
+  }
+  
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+    background-color: #cc0000;
+  }
+  
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.0rem;
+    background-color: #cc0000;
+  }
+  
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+    
+  }
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+    background-image: url('../img/background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+    background-color: #cc0000;
+  }
+  
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+      background-color: #cc0000;
+    }
+   
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+  
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
+
+  .bg-dangeri{
+    background-color: #cc0000;
+}
+
+.bg-black{
+  background-color: black;
+}
+
+ul.docs{
+  list-style: none;
+  padding-top: 10px;
+  color:white;
+}
+
+li.docs{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+li:hover{
+  background-color: #ff0000;
+}
+
+.list-group-item:hover{
+  background-color: #ff0000;
+}
+
+a{
+  color: white;
+}
+
+a:hover{
+  text-decoration: none;
+  color: gray;
+}
+.info-sec{
+  padding-top: 20px;
+}
+
+.backa{
+  background-color: rgba(0,0,0,0.7) !important;
+
+  padding-bottom: 20px;
+  padding-left: 20px;
+  color: white;
+}
+
+div.backa h2{
+  padding-top: 20px;
+}
+
+.card{
+  background-color: transparent;
+  border: transparent;
+}
+
+.cardo{
+  padding-top: 20px;
+  
+}
+
+.footer
+{
+
+}
+
+.lista-estudiantes{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.text-sidebar{
+  font-size: 14px;
+}
+
+h4{
+  padding-top: 20px;
+}
+
+.horario{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.campo{
+  padding: 0;
+  font-size: 14px;
+}
+
+.tabla-horario{
+  border-radius: 8px;
+}
+
+#imagen_perfil{
+  width: 220px;
+  height: 200px;
+}
+.profile{
+  padding-top: 30px;
+}
+
+.foto-section{
+  margin-right: -10%;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.info-section{
+  padding-top: 20px;
+}
+
+#upload_imagen{
+  width: 220px;
+}
+
+.upload_imagen{
+  padding-top: 10px;
+}
+
+.modal-contenido{
+  color: black;
+}
+ 

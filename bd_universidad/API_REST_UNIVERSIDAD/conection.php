@@ -7,18 +7,44 @@
 -->
 
 <?php
-    if(isset($_SESSION['email']))
-    {
-        $email=$_SESSION['email'];
-    }
-    else
-    {
-        session_start();
-        $email= $_SESSION['email'];
-    }
+  
     
     $conexion;
-    function connect(){   
+    function connect(){ 
+        if(isset($_SESSION['email']))
+        {
+            $email=$_SESSION['email'];
+        }
+        else
+        {
+            session_start();
+            $email= $_SESSION['email'];
+        }  
+        $serverName= "localhost";
+        $userDatabase ="root";
+        $passwordDatabase="";
+        $database= "UNIVERSIDAD";
+
+        $con= mysqli_connect($serverName,$userDatabase,$passwordDatabase,$database) or
+            die("Error en la conexión en la base de Datos");
+        return $con;
+    }
+
+    function connect_estudiantes(){
+        if(isset($_SESSION['estudiante']))
+        {
+            $email=$_SESSION['estudiante'];
+        }
+        else
+        {
+            session_start();
+            if(isset($_SESSION['estudiante']))
+            {
+                $email= $_SESSION['estudiante'];
+
+            }
+            
+        }
         $serverName= "localhost";
         $userDatabase ="root";
         $passwordDatabase="";

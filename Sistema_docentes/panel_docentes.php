@@ -18,8 +18,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </head>
 <body>
-  <?php
-    
+  <?php    
     session_start();
     include '../bd_universidad/API_REST_UNIVERSIDAD/funcs.php';
     if(isset($_SESSION['email']))
@@ -33,8 +32,7 @@
   ?>
     <div class="d-flex" id="wrapper" class="toggled">
         <!-- Sidebar -->
-        <div class="bg-dangeri border-right" id="sidebar-wrapper">
-        
+        <div class="bg-dangeri border-right" id="sidebar-wrapper">      
           <div class="sidebar-heading text-light">
           <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel </div>
           <div class="sidebar-heading text-light"><span><?php $ruta= showImagenPerfilDocente(); echo "<img src=\"$ruta\" style=\"width:40px; height:40px; border-radius: 50%;\">"; ?></span>  Docente</div>
@@ -63,14 +61,11 @@
     
         <!-- Page Content -->
         <div id="page-content-wrapper">
-    
           <nav class="navbar navbar-expand-lg navbar-primary bg-dangeri border-bottom">
             <button class="btn bg-dangeri" id="menu-toggle"> <img src="static/img/layout.svg" style="width: 15px; height: 30px;"> </button>
-    
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-    
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
@@ -89,8 +84,7 @@
                 </li>
               </ul>
             </div>
-          </nav>
-    
+          </nav> 
           <div class="container">
             <div class="container backa">
               <h2 class="mt-4">
@@ -102,15 +96,10 @@
                       
                         header("Location: ../index.html");
                       
-                      }
-                   
+                      }                  
                   ?>
-
-
               </h2>
-            </div>
-            
-            
+            </div>          
           </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -122,7 +111,5 @@
           $("#wrapper").toggleClass("toggled");
         });
       </script>
-
-
 </body>
 </html>

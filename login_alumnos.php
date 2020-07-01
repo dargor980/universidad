@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/login.css">
     <title>Inicio</title>
+    <?php
+        session_start();
+        if(isset($_SESSION['estudiante']))
+        {
+            header("Location: sistema_estudiantes/panel_estudiantes.php");
+        }
+        ?>
 </head>
 
 <body>
@@ -73,9 +80,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 <script>
-    $(document).ready(function(){
+        $(document).ready(function(){
         var height=$(window).height();
         $('#login_section').height(height);
+    });
+
+    $(document).ready(function(){
+        window.onresize=funcion_cambia;
+        function funcion_cambia(){
+            var height=$(window).height();
+        $('#login_section').height(height);
+        }
+        
     });
 </script>
 <br>

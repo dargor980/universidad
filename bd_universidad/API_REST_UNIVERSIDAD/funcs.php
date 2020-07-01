@@ -15,22 +15,18 @@
         mysqli_close($con);
     }
 
-    function showImagenPerfilEstudiante():void
+    function showImagenPerfilEstudiante()
     {
-        $con=connect();
-        $email=$_SESSION['email'];
-        $query=mysqli_query($con,"SELECT e.foto_perfil FROM ESTUDIANTE e, CREDENCIAL c WHERE c.cod_estudiante=e.rut AND c.usuario='lala@lala.com'");
+        $con=connect_estudiantes();
+        $email=$_SESSION['estudiante'];
+        $query=mysqli_query($con,"SELECT e.ruta_archivo FROM ESTUDIANTE e, CREDENCIAL c WHERE c.cod_estudiante=e.rut AND c.usuario='$email'") or
+            die("Query error: ".mysqli_error($con));
         if($result=mysqli_fetch_assoc($query))
         {
-            $imgDatos=mysqli_fetch_assoc($query);
-            header("Content-Type: image/png");
-            echo $imgDatos['foto_perfil'];
             mysqli_close($con);
+            return $result['ruta_archivo'];
         }
-        else
-        {
-            mysqli_close($con);
-        }
+        mysqli_close($con);
     }
 
 
@@ -51,6 +47,23 @@
         mysqli_close($con);
         unlink($nom);  
     } 
+
+    function uploadImagenPerfilEstudiante():void 
+    {
+        copy($_FILES['foto']['tmp_name'],$_FILES['foto']['name']);
+        echo "la foto se registró en el servidor";
+        $nom =$_FILES['foto']['name'];
+        $ruta_destino="/sistema_universidad/sistema_estudiantes/static/img/profile/";
+        $carpeta_destino=$_SERVER['DOCUMENT_ROOT'].$ruta_destino;
+        move_uploaded_file($_FILES['foto']['tmp_name'],$carpeta_destino.$nom);
+        $rut=getRutEstudiante();
+        $ruta_acceso="static/img/profile/".$nom;
+        $con=connect_estudiantes();
+        mysqli_query($con,"UPDATE ESTUDIANTE SET ruta_archivo='$ruta_acceso' WHERE rut='$rut[rut]'") or
+            die("Error to try upload: ".mysqli_error($con));
+        mysqli_close($con);
+        unlink($nom);
+    }
     
 
     function AddDocente():void
@@ -303,9 +316,9 @@
     }
 
     function getRutEstudiante()
-    {
-        $user=$_SESSION['email'];
-        $con=connect();
+    {   
+        $con=connect_estudiantes();
+        $user=$_SESSION['estudiante'];
         $query=mysqli_query($con,"SELECT e.rut FROM ESTUDIANTE e, CREDENCIAL c WHERE e.rut=c.cod_estudiante AND c.usuario='$user'") or
             die("Query error: ".mysqli_error($con));
         if($reg=mysqli_fetch_array($query))
@@ -329,9 +342,9 @@
 
     function GetEstudiante()
     {
-        $con=connect();
-        $rut=$_POST['rut'];
-        $query=mysqli_query($con,"SELECT *FROM ESTUDIANTE WHERE rut='$rut'") or
+        $con=connect_estudiantes();
+        $rut=getRutEstudiante();
+        $query=mysqli_query($con,"SELECT *FROM ESTUDIANTE WHERE rut='$rut[rut]'") or
             die("Query Error: ".mysqli_error($con));
         if($reg=mysqli_fetch_array($query))
         {
@@ -570,11 +583,28 @@
 
     }
 
+   
 
 
-    if(isset($_FILES['foto'])){
-        uploadImagenPerfilDocente();
+   
+    $op=NULL;
+    if(isset($_GET['op']))
+    {
+        $op=$_GET['op'];
+
     }
+    
+    switch($op)
+    {
+        case 1:
+            uploadImagenPerfilDocente();
+            break;
+
+        case 2:
+            uploadImagenPerfilEstudiante();
+            break;
+    }
+    
 
     
 

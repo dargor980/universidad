@@ -5,6 +5,6 @@
 
     session_destroy();
 
-    header("Location: ../docentes_login.php");
+    header("Location: ../login_alumnos.php");
 
 ?>
