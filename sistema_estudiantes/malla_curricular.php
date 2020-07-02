@@ -104,7 +104,7 @@
           <div class="container-fluid">
           <div class="container backa">
               <h4 class="mt-4 border-bottom border-white">
-                  Correo
+                  Malla Curricular
                </h4>
           </div>
             

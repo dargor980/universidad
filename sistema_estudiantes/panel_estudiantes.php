@@ -36,12 +36,12 @@
         
           <div class="sidebar-heading text-light">
           <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel </div>
-          <div class="sidebar-heading text-light"><span><?php  ?></span>  Estudiante</div>
+          <div class="sidebar-heading text-light"><span><?php $ruta=showImagenPerfilEstudiante(); echo "<img src=\"$ruta\" style=\"width:40px; height:40px; border-radius: 50%;\">";?></span>  Estudiante</div>
           <div class="list-group list-group-flush">
             <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><img src="static/img/email.svg" style="width: 14px;height: 20px;"> Correo</a>
             <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Perfil</a>
             <a href="#datosAcademicos" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="datosAcademicos">Datos académicos</a>
-            <div class="collapse" id="datosAcademicos">
+            <div class="collapse datosAcademicos" id="datosAcademicos">
                 <div class="container">
                     <div class="container-fluid">
                     <br>

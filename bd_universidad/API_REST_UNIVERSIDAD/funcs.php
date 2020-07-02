@@ -260,6 +260,24 @@
 
     }
 
+    function getHorarioSeccion():void 
+    {
+        if(isset($_SESSION['email']))
+        {
+            $con=connect();
+        }
+        else{
+            if(isset($_SESSION['estudiante']))
+            {
+                $con=connect_estudiantes();
+                $seccion=$_POST['seccion'];
+                $query=mysqli_query($con, "SELECT *FROM HORARIO_SECCION WHERE cod_seccion=");
+            }
+        }
+        
+
+    }
+
     function getHorarioEstudiante():void 
     {
 
@@ -276,6 +294,15 @@
 
         
     }
+
+
+
+    function isSalaAvailable()
+    {
+
+    }
+
+
 
     function getAsignatura()
     {
@@ -602,6 +629,10 @@
 
         case 2:
             uploadImagenPerfilEstudiante();
+            break;
+        case 3:
+            break;
+        case 4:
             break;
     }
     

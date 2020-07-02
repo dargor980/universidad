@@ -44,7 +44,7 @@
             <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Perfil</a>
             <a href="#datosAcademicos" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="datosAcademicos">Datos académicos</a>
             <div class="collapse datosAcademicos border-warning sec" id="datosAcademicos">
-                <div class="container ">
+                <div class="container">
                     <div class="container-fluid">
                     <br>
                         <ul class="border-left border-white docs text-sidebar">
@@ -104,7 +104,7 @@
           <div class="container-fluid">
           <div class="container backa">
               <h4 class="mt-4 border-bottom border-white">
-                  Correo
+                  Aranceles
                </h4>
           </div>
             

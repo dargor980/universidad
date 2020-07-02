@@ -43,14 +43,14 @@
             <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><img src="static/img/email.svg" style="width: 14px;height: 20px;"> Correo</a>
             <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Perfil</a>
             <a href="#datosAcademicos" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="datosAcademicos">Datos académicos</a>
-            <div class="collapse datosAcademicos border-warning sec" id="datosAcademicos">
-                <div class="container ">
+            <div class="collapse datosAcademicos" id="datosAcademicos">
+                <div class="container">
                     <div class="container-fluid">
                     <br>
                         <ul class="border-left border-white docs text-sidebar">
-                            <li class="docs"><a href="calificaciones.php">Mis calificaciones</a></li>
-                            <li class="docs"><a href="avance_malla.php">Avance de Malla</a></li>
-                            <li class="docs"><a href="malla_curricular.php">Malla curricular</a></li>
+                            <li class="docs">Mis calificaciones</li>
+                            <li class="docs">Avance de Malla</li>
+                            <li class="docs">Malla curricular</li>
                         </ul>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
             <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Horario</a>
             <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Aranceles</a>
             <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
-            <div class="collapse datosAcademicos border-warning sec" id="collapseExample">
+            <div class="collapse datosAcademicos" id="collapseExample">
             <div class="container-fluid">
                 <div class="container">
                     <br>
@@ -104,7 +104,7 @@
           <div class="container-fluid">
           <div class="container backa">
               <h4 class="mt-4 border-bottom border-white">
-                  Correo
+                  Avance de malla
                </h4>
           </div>
             

@@ -35,15 +35,27 @@
         <div class="bg-dangeri border-right" id="sidebar-wrapper">      
           <div class="sidebar-heading text-light">
           <a href="index.html" class="navbar-left"><img src="../static/img/logo_wolf.ico" alt="" style="max-width: 50px; padding-right: 5px;"></a>Universidad Rexel</div>
-          <div class="sidebar-heading text-light"><span><?php ?></span>  Estudiante</div>
+          <div class="sidebar-heading text-light"><span><?php  $ruta=showImagenPerfilEstudiante(); echo "<img src=\"$ruta\" style=\"width:40px; height:40px; border-radius: 50%;\">"; ?></span>  Estudiante</div>
           <div class="list-group list-group-flush">
-            <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar"><img src="static/img/email.svg" style="width: 14px;height: 20px;"> Correo</a>
-            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Perfil</a>
-            <a href="secciones.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Secciones</a>
-            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Horario</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar">Solicitar sección</a>
-            <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
-            <div class="collapse" id="collapseExample">
+            <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><img src="static/img/email.svg" style="width: 14px;height: 20px;"> Correo</a>
+            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Perfil</a>
+            <a href="#datosAcademicos" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="datosAcademicos">Datos académicos</a>
+            <div class="collapse datosAcademicos border-warning sec" id="datosAcademicos">
+                <div class="container">
+                    <div class="container-fluid">
+                    <br>
+                        <ul class="border-left border-white docs text-sidebar">
+                            <li class="docs"><a href="calificaciones.php">Mis calificaciones</a> </li>
+                            <li class="docs"><a href="avance_malla.php">Avance de Malla</a> </li>
+                            <li class="docs"><a href="malla_curricular.php">Malla curricular</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Horario</a>
+            <a href="aranceles.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Aranceles</a>
+            <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
+            <div class="collapse datosAcademicos border-warning sec" id="collapseExample">
             <div class="container-fluid">
                 <div class="container">
                     <br>
@@ -196,7 +208,6 @@
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
                       </tr>
-
                     </tbody>
                   </table>
                 </div>
