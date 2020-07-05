@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Docentes | Plataforma de gestión académica Rexel</title>
     <link rel="shortcut icon" href="static/img/logo_wolf.ico" class="icon-pestaña">
-
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <!--Font awesome--> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!--css-->
 
     <link rel="stylesheet" href="static/css/panel.css">
@@ -38,8 +38,8 @@
           <div class="sidebar-heading text-light"><span><?php  $ruta=showImagenPerfilEstudiante(); echo "<img src=\"$ruta\" style=\"width:40px; height:40px; border-radius: 50%;\">"; ?></span>  Estudiante</div>
           <div class="list-group list-group-flush">
             <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><img src="static/img/email.svg" style="width: 14px;height: 20px;"> Correo</a>
-            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Perfil</a>
-            <a href="#datosAcademicos" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="datosAcademicos">Datos académicos</a>
+            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><i class="fas fa-user"></i> Perfil</a>
+            <a href="#datosAcademicos" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="datosAcademicos"><i class="fas fa-book"></i> Datos académicos</a>
             <div class="collapse datosAcademicos border-warning sec" id="datosAcademicos">
                 <div class="container">
                     <div class="container-fluid">
@@ -52,17 +52,17 @@
                     </div>
                 </div>
             </div>
-            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Horario</a>
-            <a href="aranceles.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Aranceles</a>
-            <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
+            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><i class="far fa-calendar-alt"></i> Horario</a>
+            <a href="aranceles.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><i class="fas fa-dollar-sign"></i> Aranceles</a>
+            <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-file-alt"></i> Documentos</a>
             <div class="collapse datosAcademicos border-warning sec" id="collapseExample">
             <div class="container-fluid">
                 <div class="container">
                     <br>
                     <ul class="border-left border-white docs text-sidebar">
-                        <li class="docs">Liquidaciones de sueldo</li>
-                        <li class="docs">Notificar licencia médica</li>
-                        <li class="docs">Contrato</li>
+                        <li class="docs"><a href="">Certificados</a></li>
+                        <li class="docs"><a href="">Notificar licencia médica</a></li>
+                        <li class="docs"><a href="">Contratos matrícula</a></li>
                     </ul>
                 </div>   
             </div>
@@ -82,13 +82,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                  <a class="nav-link text-light" href="panel_docentes.php">Inicio <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-light" href="panel_estudiantes.php">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Usuario
                   </a>
-                  <div class="dropdown-menu dropdown-menu-right bg-primary" aria-labelledby="navbarDropdown">
+                  <div class="dropdown-menu dropdown-menu-right bg-dangeri" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item text-light" href="#">Action</a>
                     <a class="dropdown-item text-light" href="#">Another action</a>
                     <div class="dropdown-divider"></div>
@@ -103,7 +103,28 @@
                 <h4 class="mt-4 border-bottom border-white">
                   Horario Estudiante
                 </h4>
-                <div class="container horario">
+
+                <div class="container horario table-responsive">
+                  <table class="table table-stripped table-dark tabla-horario">
+                    <thead>
+                      <tr>
+                        <th scope="col">Código asignatura</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Profesor</th>
+                        <th scope="col">Sección</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-danger">
+                      <?php
+                        getTableAsignaturasEstudiante();
+                      ?>               
+                    </tbody>
+                  </table>
+                </div>
+                <div class="container horario table-responsive">
+                  <?php
+                  $horario[]=getHorarioEstudiante();
+                  ?>
                   <table class="table table-stripped table-dark tabla-horario">
                     <thead>
                       <tr>
@@ -121,102 +142,578 @@
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">1</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">8:00-9:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                          {
+                            foreach($row as $value)
+                            {
+                              if($value['cod_bloque']==1 && $value['descripcion']=="Lunes")
+                              {
+                                echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                              }
+                            }
+                          }?>    
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                            {
+                              foreach($row as $value)
+                              {
+                                if($value['cod_bloque']==1 && $value['descripcion']=="Martes")
+                                {
+                                  echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                }
+                              }
+                          }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                            {
+                              foreach($row as $value)
+                              {
+                                if($value['cod_bloque']==1 && $value['descripcion']=="Miercoles")
+                                {
+                                  echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                }
+                            }
+                          }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                            {
+                              foreach($row as $value)
+                              {
+                                if($value['cod_bloque']==1 && $value['descripcion']=="Jueves")
+                                {
+                                  echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                }
+                              }
+                          }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                            { 
+                              foreach($row as $value)
+                              {
+                                if($value['cod_bloque']==1 && $value['descripcion']=="Viernes")
+                                {
+                                  echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                }
+                              }
+                            }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                        <?php foreach($horario as $row)
+                          {
+                            foreach($row as $value)
+                            {
+                              if($value['cod_bloque']==1 && $value['descripcion']=="Sabado")
+                              {
+                                echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                              }
+                            }
+                          }?>
+                        </th>
                       </tr>
+
+
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">2</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">9:40-11:10</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                            {
+                              foreach($row as $value)
+                              {
+                                if($value['cod_bloque']==2 && $value['descripcion']=="Lunes")
+                                {
+                                  echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                }
+                              }
+                            }?>  
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                              {
+                                foreach($row as $value)
+                                {
+                                  if($value['cod_bloque']==2 && $value['descripcion']=="Martes")
+                                  {
+                                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                  }
+                                }
+                              }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                              {
+                                foreach($row as $value)
+                                {
+                                  if($value['cod_bloque']==2 && $value['descripcion']=="Miercoles")
+                                  {
+                                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                  }
+                                }
+                              }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                              {
+                                foreach($row as $value)
+                                {
+                                  if($value['cod_bloque']==2 && $value['descripcion']=="Jueves")
+                                  {
+                                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                  }
+                                }
+                              }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                              {
+                                foreach($row as $value)
+                                {
+                                  if($value['cod_bloque']==2 && $value['descripcion']=="Viernes")
+                                  {
+                                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                  }
+                                }
+                              }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                              {
+                                foreach($row as $value)
+                                {
+                                  if($value['cod_bloque']==2 && $value['descripcion']=="Sabado")
+                                  {
+                                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                  }
+                                }
+                              }?>
+                        </th>
                       </tr>
+
+
+
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">3</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">11:20-12:50</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                              {
+                                foreach($row as $value)
+                                {
+                                  if($value['cod_bloque']==3 && $value['descripcion']=="Lunes")
+                                  {
+                                    echo $value['cod_asignatura']."<br> Sala ".$value['cod_sala'];
+                                  }
+                                }
+                              }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                {
+                                  foreach($row as $value)
+                                  {
+                                    if($value['cod_bloque']==3 && $value['descripcion']=="Martes")
+                                    {
+                                      echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                    }
+                                  }
+                                }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                {
+                                  foreach($row as $value)
+                                  {
+                                    if($value['cod_bloque']==3 && $value['descripcion']=="Miercoles")
+                                    {
+                                      echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                    }
+                                  }
+                                }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                {
+                                  foreach($row as $value)
+                                  {
+                                    if($value['cod_bloque']==3 && $value['descripcion']=="Jueves")
+                                    {
+                                      echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                    }
+                                  }
+                                }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                {
+                                  foreach($row as $value)
+                                  {
+                                    if($value['cod_bloque']==3 && $value['descripcion']=="Viernes")
+                                    {
+                                      echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                    }
+                                  }
+                                }?>
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                {
+                                  foreach($row as $value)
+                                  {
+                                    if($value['cod_bloque']==3 && $value['descripcion']=="Sabado")
+                                    {
+                                      echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                                    }
+                                  }
+                                }?>
+                        </th>
                       </tr>
+
+
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">4</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">13:00-14:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                            {
+                              foreach($row as $value)
+                              {
+                                if($value['cod_bloque']==4 && $value['descripcion']=="Lunes")
+                                {
+                                  echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                }
+                              }
+                            }?>    
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                              {
+                                foreach($row as $value)
+                                {
+                                  if($value['cod_bloque']==4 && $value['descripcion']=="Martes")
+                                  {
+                                    echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                  }
+                                }
+                              }?>  
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                              {
+                                foreach($row as $value)
+                                {
+                                  if($value['cod_bloque']==4 && $value['descripcion']=="Miercoles")
+                                  {
+                                    echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                  }
+                                }
+                              }?>  
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                              {
+                                foreach($row as $value)
+                                {
+                                  if($value['cod_bloque']==4 && $value['descripcion']=="Jueves")
+                                  {
+                                    echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                  }
+                                }
+                              }?>  
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                        <?php foreach($horario as $row)
+                            {
+                              foreach($row as $value)
+                              {
+                                if($value['cod_bloque']==4 && $value['descripcion']=="Viernes")
+                                {
+                                  echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                }
+                              }
+                            }?>  
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                              {
+                                foreach($row as $value)
+                                {
+                                  if($value['cod_bloque']==4 && $value['descripcion']=="Sabado")
+                                  {
+                                    echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                  }
+                                }
+                              }?>  
+                        </th>
                       </tr>
+
+
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">5</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">14:40-16:10</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo ">14:40-16:10</th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                {
+                                  foreach($row as $value)
+                                  {
+                                    if($value['cod_bloque']==5 && $value['descripcion']=="Lunes")
+                                    {
+                                      echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                    }
+                                  }
+                                }?>  
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==5 && $value['descripcion']=="Martes")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==5 && $value['descripcion']=="Miercoles")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==5 && $value['descripcion']=="Jueves")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==5 && $value['descripcion']=="Viernes")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==5 && $value['descripcion']=="Sabado")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
                       </tr>
+
+
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">6</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">16:20-17:50</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==6 && $value['descripcion']=="Lunes")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==6 && $value['descripcion']=="Martes")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==6 && $value['descripcion']=="Miercoles")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==6 && $value['descripcion']=="Jueves")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==6 && $value['descripcion']=="Viernes")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==6 && $value['descripcion']=="Sabado")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
                       </tr>
+
+
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">7</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">18:00-19:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                  {
+                                    foreach($row as $value)
+                                    {
+                                      if($value['cod_bloque']==7 && $value['descripcion']=="Lunes")
+                                      {
+                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                      }
+                                    }
+                                  }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                    {
+                                      foreach($row as $value)
+                                      {
+                                        if($value['cod_bloque']==7 && $value['descripcion']=="Martes")
+                                        {
+                                          echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                        }
+                                      }
+                                    }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                      {
+                                        foreach($row as $value)
+                                        {
+                                          if($value['cod_bloque']==7 && $value['descripcion']=="Miercoles")
+                                          {
+                                            echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                          }
+                                        }
+                                      }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                      {
+                                        foreach($row as $value)
+                                        {
+                                          if($value['cod_bloque']==7 && $value['descripcion']=="Jueves")
+                                          {
+                                            echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                          }
+                                        }
+                                      }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                      {
+                                        foreach($row as $value)
+                                        {
+                                          if($value['cod_bloque']==7 && $value['descripcion']=="Viernes")
+                                          {
+                                            echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                          }
+                                        }
+                                      }?> 
+                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
+                          <?php foreach($horario as $row)
+                                      {
+                                        foreach($row as $value)
+                                        {
+                                          if($value['cod_bloque']==7 && $value['descripcion']=="Sabado")
+                                          {
+                                            echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
+                                          }
+                                        }
+                                      }?> 
+                        </th>
                       </tr>
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">8</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">19:40-21:10</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
                       </tr>
                       <tr >
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">9</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">21:20-22:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
                       </tr>
                     </tbody>
                   </table>
                 </div>
             </div>
             
+              
           </div>
         </div>
         <!-- /#page-content-wrapper -->
-    
+              
       </div>
       <script>
         $("#menu-toggle").click(function(e) {

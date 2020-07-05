@@ -94,7 +94,7 @@
 
     function AddEstudiante():void
     {
-        $con=connect();
+        $con=connect_estudiantes();
         $rut=$_POST['rut'];
         $name=$_POST['name'];
         $lastName=$_POST['lastName'];
@@ -278,9 +278,18 @@
 
     }
 
-    function getHorarioEstudiante():void 
+    function getHorarioEstudiante()
     {
-
+        $con=connect_estudiantes();
+        $rut=getRutEstudiante();
+        $query=mysqli_query($con,"SELECT se.cod_asignatura, hs.cod_sala, h.cod_bloque, dh.descripcion FROM HORARIO_SECCION hs, HORARIO h, DIA_HORARIO dh, SECCION se, ESTADO_CURSO ec WHERE hs.cod_horario=h.cod_horario AND h.cod_dia=dh.cod_dia AND hs.cod_seccion=se.cod_seccion AND ec.cod_seccion = se.cod_seccion AND ec.cod_estudiante='$rut[rut]'") or
+            die("Query error: ".mysqli_error($con));
+        while($res=mysqli_fetch_array($query))
+        {
+            $horario[]=$res;
+        }
+        mysqli_close($con);
+        return $horario;
     }
     
     function getAvanceDeMalla():void 
@@ -379,6 +388,25 @@
             return $reg;
         }
     }
+
+    function getTableAsignaturasEstudiante():void
+    {
+        $con=connect_estudiantes();
+        $rut=getRutEstudiante();
+        $query=mysqli_query($con,"SELECT a.cod_asignatura, a.nombre AS asignatura, p.nombre,p.apellido, s.cod_seccion FROM ASIGNATURA a, PROFESOR p, SECCION s, ESTADO_CURSO ec WHERE ec.cod_estudiante='$rut[rut]' AND ec.cod_seccion=s.cod_seccion AND s.cod_profesor=p.rut AND s.cod_asignatura=a.cod_asignatura ORDER BY a.nombre") or
+            die("Query error: ".mysqli_error($con));
+        while($reg=mysqli_fetch_array($query))
+        { ?>
+            <tr>
+                <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php echo $reg['cod_asignatura']?></th>
+                <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php echo $reg['asignatura']?></th>
+                <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php echo $reg['nombre']." ".$reg['apellido']?></th>
+                <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php echo $reg['cod_seccion']?></th>
+            </tr>
+        <?php
+        }
+    }
+
     function isDocenteExists()
     {
         $rut=$_POST['rut'];
@@ -618,7 +646,6 @@
     if(isset($_GET['op']))
     {
         $op=$_GET['op'];
-
     }
     
     switch($op)
@@ -635,9 +662,5 @@
         case 4:
             break;
     }
-    
-
-    
-
 ?>
 

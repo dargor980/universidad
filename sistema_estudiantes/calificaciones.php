@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil | Plataforma de gestión académica Rexel</title>
     <link rel="shortcut icon" href="static/img/logo_wolf.ico" class="icon-pestaña">
-
+    <!--Font awesome--> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -41,9 +42,9 @@
           <div class="sidebar-heading text-light"><span><?php  $ruta=showImagenPerfilEstudiante(); echo "<img src=\"$ruta\" style=\"width:40px; height:40px; border-radius: 50%;\">"; ?></span>  Estudiante</div>
           <div class="list-group list-group-flush">
             <a href="inbox.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><img src="static/img/email.svg" style="width: 14px;height: 20px;"> Correo</a>
-            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Perfil</a>
-            <a href="#datosAcademicos" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="datosAcademicos">Datos académicos</a>
-            <div class="collapse datosAcademicos" id="datosAcademicos">
+            <a href="profile.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><i class="fas fa-user"></i> Perfil</a>
+            <a href="#datosAcademicos" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="datosAcademicos"><i class="fas fa-book"></i> Datos académicos</a>
+            <div class="collapse datosAcademicos border-warning sec" id="datosAcademicos">
                 <div class="container">
                     <div class="container-fluid">
                     <br>
@@ -55,17 +56,17 @@
                     </div>
                 </div>
             </div>
-            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Horario</a>
-            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white">Aranceles</a>
-            <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Documentos</a>
-            <div class="collapse datosAcademicos" id="collapseExample">
+            <a href="horario.php" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><i class="far fa-calendar-alt"></i> Horario</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white"><i class="fas fa-dollar-sign"></i> Aranceles</a>
+            <a href="#collapseExample" class="list-group-item list-group-item-action bg-dangeri text-light text-sidebar border-white" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-file-alt"></i> Documentos</a>
+            <div class="collapse datosAcademicos border-warning sec" id="collapseExample">
             <div class="container-fluid">
                 <div class="container">
                     <br>
                     <ul class="border-left border-white docs text-sidebar">
-                        <li class="docs">Liquidaciones de sueldo</li>
-                        <li class="docs">Notificar licencia médica</li>
-                        <li class="docs">Contrato</li>
+                        <li class="docs"><a href="">Certificados</a></li>
+                        <li class="docs"><a href="">Notificar licencia médica</a></li>
+                        <li class="docs"><a href="">Contratos matrícula</a></li>
                     </ul>
                 </div>   
             </div>
