@@ -112,94 +112,97 @@
                     </thead>
                     <tbody class="table-danger">
                       <tr>
+                      <?php
+                        $horario[]=getHorarioDocente();
+                        ?>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">1</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">8:00-9:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Lunes",1,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Martes",1,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Miercoles",1,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Jueves",1,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Viernes",1,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Sabado",1,$horario);?></th>
                       </tr>
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">2</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">9:40-11:10</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Lunes",2,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Martes",2,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Miercoles",2,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Jueves",2,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Viernes",2,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Sabado",2,$horario);?></th>
                       </tr>
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">3</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">11:20-12:50</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Lunes",3,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Martes",3,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Miercoles",3,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Jueves",3,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Viernes",3,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Sabado",3,$horario);?></th>
                       </tr>
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">4</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">13:00-14:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Lunes",4,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Martes",4,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Miercoles",4,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Jueves",4,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Viernes",4,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Sabado",4,$horario);?></th>
                       </tr>
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">5</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">14:40-16:10</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Lunes",5,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Martes",5,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Miercoles",5,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Jueves",5,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Viernes",5,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Sabado",5,$horario);?></th>
                       </tr>
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">6</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">16:20-17:50</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Lunes",6,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Martes",6,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Miercoles",6,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Jueves",6,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Viernes",6,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Sabado",6,$horario);?></th>
                       </tr>
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">7</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">18:00-19:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Lunes",7,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Martes",7,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Miercoles",7,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Jueves",7,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Viernes",7,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Sabado",7,$horario);?></th>
                       </tr>
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">8</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">19:40-21:10</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Lunes",8,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Martes",8,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Miercoles",8,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Jueves",8,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Viernes",8,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><<?php printHorario("Sabado",8,$horario);?>/th>
                       </tr>
                       <tr >
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">9</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">21:20-22:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Bases de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Redes y comunicacion de datos</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">Algoritmos y programacion</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Lunes",9,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Martes",9,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Miercoles",9,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Jueves",9,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Viernes",9,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo"><?php printHorario("Sabado",9,$horario);?></th>
                       </tr>
 
                     </tbody>

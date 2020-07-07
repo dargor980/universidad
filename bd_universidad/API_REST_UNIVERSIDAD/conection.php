@@ -7,9 +7,8 @@
 -->
 
 <?php
-  
     
-    $conexion;
+    
     function connect(){ 
         if(isset($_SESSION['email']))
         {
@@ -24,7 +23,7 @@
         $userDatabase ="root";
         $passwordDatabase="";
         $database= "UNIVERSIDAD";
-
+        $conexion;
         $con= mysqli_connect($serverName,$userDatabase,$passwordDatabase,$database) or
             die("Error en la conexión en la base de Datos");
         return $con;
@@ -49,9 +48,33 @@
         $userDatabase ="root";
         $passwordDatabase="";
         $database= "UNIVERSIDAD";
-
+        $conexion;
         $con= mysqli_connect($serverName,$userDatabase,$passwordDatabase,$database) or
             die("Error en la conexión en la base de Datos");
+        return $con;
+    }
+
+    function connect_administracion()
+    {
+        if(isset($_SESSION['administracion']))
+        {
+            $email=$_SESSION['administracion'];
+        }
+        else
+        {
+            session_start();
+            if(isset($_SESSION['administracion']))
+            {
+                $email= $_SESSION['administracion'];
+            }
+        }
+        $serverName= "localhost";
+        $userDatabase ="root";
+        $passwordDatabase="";
+        $database= "UNIVERSIDAD";
+        $conexion;
+        $con=mysqli_connect($serverName,$userDatabase,$passwordDatabase,$database) or
+            die("Error en la conexion en la base de Datos");
         return $con;
     }
     

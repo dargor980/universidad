@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil | Plataforma de gestión académica Rexel</title>
+    <title>Avance de malla | Plataforma de gestión académica Rexel</title>
     <link rel="shortcut icon" href="static/img/logo_wolf.ico" class="icon-pestaña">
 
     <!--Bootstrap-->

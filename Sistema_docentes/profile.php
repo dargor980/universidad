@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="modal-body modal-contenido">
                                   <div class="container">
-                                    <form action="../bd_universidad/API_REST_UNIVERSIDAD/funcs.php" method="POST" class="form-group" enctype="multipart/form-data">
+                                    <form action="../bd_universidad/API_REST_UNIVERSIDAD/funcs.php?op=1" method="POST" class="form-group" enctype="multipart/form-data">
                                       <label for="">Seleccione un archivo</label>
                                       <input type="file" name="foto"><br><br>
                                         

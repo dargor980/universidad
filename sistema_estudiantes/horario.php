@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Docentes | Plataforma de gestión académica Rexel</title>
+    <title>Horario | Plataforma de gestión académica Rexel</title>
     <link rel="shortcut icon" href="static/img/logo_wolf.ico" class="icon-pestaña">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -142,156 +142,24 @@
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">1</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">8:00-9:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                          {
-                            foreach($row as $value)
-                            {
-                              if($value['cod_bloque']==1 && $value['descripcion']=="Lunes")
-                              {
-                                echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                              }
-                            }
-                          }?>    
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                            {
-                              foreach($row as $value)
-                              {
-                                if($value['cod_bloque']==1 && $value['descripcion']=="Martes")
-                                {
-                                  echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                }
-                              }
-                          }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                            {
-                              foreach($row as $value)
-                              {
-                                if($value['cod_bloque']==1 && $value['descripcion']=="Miercoles")
-                                {
-                                  echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                }
-                            }
-                          }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                            {
-                              foreach($row as $value)
-                              {
-                                if($value['cod_bloque']==1 && $value['descripcion']=="Jueves")
-                                {
-                                  echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                }
-                              }
-                          }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                            { 
-                              foreach($row as $value)
-                              {
-                                if($value['cod_bloque']==1 && $value['descripcion']=="Viernes")
-                                {
-                                  echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                }
-                              }
-                            }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                        <?php foreach($horario as $row)
-                          {
-                            foreach($row as $value)
-                            {
-                              if($value['cod_bloque']==1 && $value['descripcion']=="Sabado")
-                              {
-                                echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                              }
-                            }
-                          }?>
-                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Lunes",1,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Martes",1,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Miercoles",1,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Jueves",1,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Viernes",1,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Sabado",1,$horario); ?></th>
                       </tr>
 
 
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">2</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">9:40-11:10</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                            {
-                              foreach($row as $value)
-                              {
-                                if($value['cod_bloque']==2 && $value['descripcion']=="Lunes")
-                                {
-                                  echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                }
-                              }
-                            }?>  
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                              {
-                                foreach($row as $value)
-                                {
-                                  if($value['cod_bloque']==2 && $value['descripcion']=="Martes")
-                                  {
-                                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                  }
-                                }
-                              }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                              {
-                                foreach($row as $value)
-                                {
-                                  if($value['cod_bloque']==2 && $value['descripcion']=="Miercoles")
-                                  {
-                                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                  }
-                                }
-                              }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                              {
-                                foreach($row as $value)
-                                {
-                                  if($value['cod_bloque']==2 && $value['descripcion']=="Jueves")
-                                  {
-                                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                  }
-                                }
-                              }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                              {
-                                foreach($row as $value)
-                                {
-                                  if($value['cod_bloque']==2 && $value['descripcion']=="Viernes")
-                                  {
-                                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                  }
-                                }
-                              }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                              {
-                                foreach($row as $value)
-                                {
-                                  if($value['cod_bloque']==2 && $value['descripcion']=="Sabado")
-                                  {
-                                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                  }
-                                }
-                              }?>
-                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Lunes",2,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Martes",2,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Miercoles",2,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Jueves",2,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Viernes",2,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Sabado",2,$horario);?></th>
                       </tr>
 
 
@@ -299,410 +167,82 @@
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">3</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">11:20-12:50</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                              {
-                                foreach($row as $value)
-                                {
-                                  if($value['cod_bloque']==3 && $value['descripcion']=="Lunes")
-                                  {
-                                    echo $value['cod_asignatura']."<br> Sala ".$value['cod_sala'];
-                                  }
-                                }
-                              }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                {
-                                  foreach($row as $value)
-                                  {
-                                    if($value['cod_bloque']==3 && $value['descripcion']=="Martes")
-                                    {
-                                      echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                    }
-                                  }
-                                }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                {
-                                  foreach($row as $value)
-                                  {
-                                    if($value['cod_bloque']==3 && $value['descripcion']=="Miercoles")
-                                    {
-                                      echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                    }
-                                  }
-                                }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                {
-                                  foreach($row as $value)
-                                  {
-                                    if($value['cod_bloque']==3 && $value['descripcion']=="Jueves")
-                                    {
-                                      echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                    }
-                                  }
-                                }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                {
-                                  foreach($row as $value)
-                                  {
-                                    if($value['cod_bloque']==3 && $value['descripcion']=="Viernes")
-                                    {
-                                      echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                    }
-                                  }
-                                }?>
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                {
-                                  foreach($row as $value)
-                                  {
-                                    if($value['cod_bloque']==3 && $value['descripcion']=="Sabado")
-                                    {
-                                      echo $value['cod_asignatura']."<br>".$value['cod_sala'];
-                                    }
-                                  }
-                                }?>
-                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Lunes",3,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Martes",3,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Miercoles",3,$horario);?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Jueves",3,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Viernes",3,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Sabado",3,$horario); ?></th>
                       </tr>
 
 
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">4</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">13:00-14:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                            {
-                              foreach($row as $value)
-                              {
-                                if($value['cod_bloque']==4 && $value['descripcion']=="Lunes")
-                                {
-                                  echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                }
-                              }
-                            }?>    
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                              {
-                                foreach($row as $value)
-                                {
-                                  if($value['cod_bloque']==4 && $value['descripcion']=="Martes")
-                                  {
-                                    echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                  }
-                                }
-                              }?>  
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                              {
-                                foreach($row as $value)
-                                {
-                                  if($value['cod_bloque']==4 && $value['descripcion']=="Miercoles")
-                                  {
-                                    echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                  }
-                                }
-                              }?>  
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                              {
-                                foreach($row as $value)
-                                {
-                                  if($value['cod_bloque']==4 && $value['descripcion']=="Jueves")
-                                  {
-                                    echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                  }
-                                }
-                              }?>  
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                        <?php foreach($horario as $row)
-                            {
-                              foreach($row as $value)
-                              {
-                                if($value['cod_bloque']==4 && $value['descripcion']=="Viernes")
-                                {
-                                  echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                }
-                              }
-                            }?>  
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                              {
-                                foreach($row as $value)
-                                {
-                                  if($value['cod_bloque']==4 && $value['descripcion']=="Sabado")
-                                  {
-                                    echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                  }
-                                }
-                              }?>  
-                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Lunes",4,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Martes",4,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Miercoles",4,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Jueves",4,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Viernes",4,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Sabado",4,$horario); ?></th>
                       </tr>
 
 
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">5</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo ">14:40-16:10</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                {
-                                  foreach($row as $value)
-                                  {
-                                    if($value['cod_bloque']==5 && $value['descripcion']=="Lunes")
-                                    {
-                                      echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                    }
-                                  }
-                                }?>  
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==5 && $value['descripcion']=="Martes")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==5 && $value['descripcion']=="Miercoles")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==5 && $value['descripcion']=="Jueves")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==5 && $value['descripcion']=="Viernes")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==5 && $value['descripcion']=="Sabado")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Lunes",5,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Martes",5,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Miercoles",5,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Jueves",5,$horario); ?> </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Viernes",5,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Sabado",5,$horario); ?></th>
                       </tr>
 
 
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">6</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">16:20-17:50</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==6 && $value['descripcion']=="Lunes")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==6 && $value['descripcion']=="Martes")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==6 && $value['descripcion']=="Miercoles")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==6 && $value['descripcion']=="Jueves")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==6 && $value['descripcion']=="Viernes")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==6 && $value['descripcion']=="Sabado")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Lunes",6,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Martes",6,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Miercoles",6,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Jueves",6,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Viernes",6,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Sabado",6,$horario); ?></th>
                       </tr>
 
 
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">7</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">18:00-19:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                  {
-                                    foreach($row as $value)
-                                    {
-                                      if($value['cod_bloque']==7 && $value['descripcion']=="Lunes")
-                                      {
-                                        echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                      }
-                                    }
-                                  }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                    {
-                                      foreach($row as $value)
-                                      {
-                                        if($value['cod_bloque']==7 && $value['descripcion']=="Martes")
-                                        {
-                                          echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                        }
-                                      }
-                                    }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                      {
-                                        foreach($row as $value)
-                                        {
-                                          if($value['cod_bloque']==7 && $value['descripcion']=="Miercoles")
-                                          {
-                                            echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                          }
-                                        }
-                                      }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                      {
-                                        foreach($row as $value)
-                                        {
-                                          if($value['cod_bloque']==7 && $value['descripcion']=="Jueves")
-                                          {
-                                            echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                          }
-                                        }
-                                      }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                      {
-                                        foreach($row as $value)
-                                        {
-                                          if($value['cod_bloque']==7 && $value['descripcion']=="Viernes")
-                                          {
-                                            echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                          }
-                                        }
-                                      }?> 
-                        </th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">
-                          <?php foreach($horario as $row)
-                                      {
-                                        foreach($row as $value)
-                                        {
-                                          if($value['cod_bloque']==7 && $value['descripcion']=="Sabado")
-                                          {
-                                            echo $value['cod_asignatura']."<br>Sala ".$value['cod_sala'];
-                                          }
-                                        }
-                                      }?> 
-                        </th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Lunes",7,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Martes",7,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Miercoles",7,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Jueves",7,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Viernes",7,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Sabado",7,$horario); ?></th>
                       </tr>
+
                       <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">8</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">19:40-21:10</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Lunes",8,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Martes",8,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Miercoles",8,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Jueves",8,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Viernes",8,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Sabado",8,$horario); ?></th>
                       </tr>
-                      <tr >
+
+                      <tr>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center">9</th>
                         <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo">21:20-22:30</th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
-                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Lunes",9,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Martes",9,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Miercoles",9,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Jueves",9,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Viernes",9,$horario); ?></th>
+                        <th scope="col" class="border-right border-bottom border-secondary font-weight-light text-dark campo text-center"><?php printHorario("Sabado",9,$horario); ?></th>
                       </tr>
                     </tbody>
                   </table>

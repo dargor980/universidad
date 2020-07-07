@@ -38,10 +38,10 @@
         $nom = $_FILES['foto']['name'];
         $ruta_destino="/sistema_universidad/Sistema_docentes/static/img/profile/";
         $carpeta_destino=$_SERVER['DOCUMENT_ROOT'].$ruta_destino;
-        move_uploaded_file($_FILES['foto']['tmp_name'],$carpeta_destino.$nom);
-        $rut=getRutProfesor();
+        move_uploaded_file($_FILES['foto']['tmp_name'],$carpeta_destino.$nom);   
         $ruta_acceso="static/img/profile/".$nom;
         $con=connect();
+        $rut=getRutProfesor();
         mysqli_query($con,"UPDATE PROFESOR SET ruta_foto_perfil='$ruta_acceso' WHERE rut='$rut[rut]'") or
             die("Error to try update: ".mysqli_error($con));
         mysqli_close($con);
@@ -193,6 +193,25 @@
         mysqli_close($con);
     }
 
+    function addSala():void 
+    {
+        $con=connect_administracion();
+        $cod_sala=$_POST['cod_sala'];
+        $descripcion=$_POST['descripcion'];
+        mysqli_query($con,"INSERT INTO SALA (cod_sala,descripcion) VALUES ('$cod_sala','$descripcion')") or
+            die("Error to try upload data: ".mysqli_error($con));
+        mysqli_close($con);
+    }
+
+    function DeleteSala():void 
+    {
+        $con=connect_administracion();
+        $cod_sala=$_POST['cod_sala'];
+        mysqli_query($con,"DELETE FROM SALA WHERE cod_sala='$cod_sala'") or
+            die("Error to try delete: ".mysqli_error($con));
+        mysqli_close($con);
+    }
+
     function DeleteDocente():void
     {
         $con=connect();
@@ -254,10 +273,32 @@
         mysqli_close($con);
     }
 
-    function getHorarioDocente():void
+    function getHorarioDocente()
     {
+        $con=connect();
+        $rut=getRutProfesor();
+        $query=mysqli_query($con,"SELECT se.cod_asignatura, hs.cod_sala, h.cod_bloque, dh.descripcion FROM HORARIO_SECCION hs, HORARIO h, DIA_HORARIO dh, SECCION se WHERE hs.cod_horario=h.cod_horario AND h.cod_dia=dh.cod_dia AND hs.cod_seccion=se.cod_seccion AND se.cod_profesor='$rut[rut]'") or
+            die("Query error: ".mysqli_error($con));
+        while($res=mysqli_fetch_array($query))
+        {
+            $horario[]=$res;
+        }
+        mysqli_close($con);
+        return $horario;
+    }
 
-
+    function printHorario($dia,$bloque,$horario):void
+    {
+        foreach($horario as $row)
+        {
+            foreach($row as $value)
+            {
+                if($value['cod_bloque']==$bloque && $value['descripcion']==$dia)
+                {
+                    echo $value['cod_asignatura']."<br>".$value['cod_sala'];
+                }
+            }
+        }
     }
 
     function getHorarioSeccion():void 
@@ -274,8 +315,6 @@
                 $query=mysqli_query($con, "SELECT *FROM HORARIO_SECCION WHERE cod_seccion=");
             }
         }
-        
-
     }
 
     function getHorarioEstudiante()
@@ -657,9 +696,80 @@
         case 2:
             uploadImagenPerfilEstudiante();
             break;
+
         case 3:
+            AddDocente();
             break;
+
         case 4:
+            AddEstudiante();
+            break;
+
+        case 5:
+            break;
+
+        case 6:
+            addSala();
+            break;
+
+        case 7:
+            AddEstudianteToSeccion();
+            break;
+        
+        case 8:
+            AddSeccion();
+            break;
+
+        case 9:
+            addAsignatura();
+            break;
+
+        case 10:
+            addCarrera();
+            break;
+
+        case 11:
+            addMatricula();
+            break;
+
+        case 12:
+            addCredencial();
+            break;
+
+        case 13:
+            inscribirEstudianteCarrera();
+            break;
+
+        case 14:
+            updateEstadoEstudiante();
+            break;
+        
+        case 15:
+            updateComunaEstudiante();
+            break;
+        
+        case 16:
+            updateCorreoEstudiante();
+            break;
+
+        case 17:
+            updateDireccionEstudiante();
+            break;
+
+        case 18:
+            updateTelefonoEstudiante();
+            break;
+
+        case 19:
+            updateComunaDocente();
+            break;
+
+        case 20:
+            updateCorreoDocente();
+            break;
+
+        case 21:
+            updateDireccionDocente();
             break;
     }
 ?>
